@@ -35,9 +35,8 @@ public class PlayerMovement : MonoBehaviour
         direction.y = 0;
         //rb.velocity = direction * speed;
         //rb.MovePosition((Vector2)transform.position + direction * speed * Time.fixedDeltaTime);
-        rb.AddForce(direction * speed, ForceMode2D.Impulse); //Movimento slittante
+        rb.AddForce(direction * speed, ForceMode2D.Impulse); 
     }
-
 
     private void OnEnable()
     {
