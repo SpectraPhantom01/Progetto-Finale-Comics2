@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(direction * speed, ForceMode2D.Impulse); //Movimento slittante
     }
 
+
     private void OnEnable()
     {
         playerInput = new PlayerInput();
