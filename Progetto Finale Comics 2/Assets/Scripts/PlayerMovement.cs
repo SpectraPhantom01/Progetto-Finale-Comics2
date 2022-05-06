@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    [SerializeField] float speed = 10;
+    [Header("Player Settings")]
+    [SerializeField] float speed = 1f;
+    [SerializeField] float jumpForce = 5f;
 
     PlayerInput playerInput;
     Vector2 direction;
-    Rigidbody2D rbody;
+    Rigidbody2D rb;
 
     void Awake()
     {
-        playerInput = new PlayerInput();
-        rbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
@@ -23,17 +23,26 @@ public class PlayerMovement : MonoBehaviour
         Movement();
     }
 
-    private void Movement()
+    public void Jump(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        //rb.velocity = Vector2.up * jumpForce;  
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    }
+
+    public void Movement()
     {
         direction = playerInput.Player.Movement.ReadValue<Vector2>();
         direction.y = 0;
-        //rbody.velocity = direction * speed;
-        rbody.MovePosition((Vector2)transform.position + direction * speed * Time.fixedDeltaTime);
+        //rb.velocity = direction * speed;
+        //rb.MovePosition((Vector2)transform.position + direction * speed * Time.fixedDeltaTime);
+        rb.AddForce(direction * speed, ForceMode2D.Impulse); //Movimento slittante
     }
 
     private void OnEnable()
     {
+        playerInput = new PlayerInput();
         playerInput.Player.Enable();
+        playerInput.Player.Jump.performed += Jump;
     }
 
     private void OnDisable()
