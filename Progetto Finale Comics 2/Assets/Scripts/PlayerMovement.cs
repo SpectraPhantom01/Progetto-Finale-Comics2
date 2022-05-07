@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Settings")]
     [SerializeField] float speed = 10f;
     [SerializeField] float jumpForce = 8f;
-    [SerializeField] float slideValue = 0f;
     public bool isGrounded;
     //public bool lockMovement;
 
@@ -32,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
         direction = playerInput.Player.Movement.ReadValue<Vector2>();
         direction.y = 0;
         transform.Translate(direction * speed * Time.fixedDeltaTime);
-        rb.AddForce(direction * slideValue); 
     }
 
     public void Jump(UnityEngine.InputSystem.InputAction.CallbackContext obj)
