@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Player Settings")]
-    [SerializeField] float speed = 1f;
+    [SerializeField] float speed = 10f;
     [SerializeField] float jumpForce = 5f;
 
     PlayerInput playerInput;
@@ -33,9 +33,7 @@ public class PlayerMovement : MonoBehaviour
     {
         direction = playerInput.Player.Movement.ReadValue<Vector2>();
         direction.y = 0;
-        //rb.velocity = direction * speed;
-        //rb.MovePosition((Vector2)transform.position + direction * speed * Time.fixedDeltaTime);
-        rb.AddForce(direction * speed, ForceMode2D.Impulse); 
+        transform.Translate(direction * speed * Time.deltaTime);
     }
 
     private void OnEnable()
