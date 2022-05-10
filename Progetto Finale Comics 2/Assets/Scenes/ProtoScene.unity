@@ -623,11 +623,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c9395721176648478f24055e887789d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 10
   jumpForce: 20
   jumpRememberTime: 0.2
   cutJumpValue: 0.5
-  slideValue: 1
   checkGround: {fileID: 43366465}
   groundCheckRadius: 0.3
   groundedRememberTime: 0.1
