@@ -9,7 +9,6 @@ public class DeathZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Bruh");
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             collision.transform.position = checkpoint.transform.position;
