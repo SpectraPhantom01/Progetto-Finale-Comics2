@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Player Movement Settings")]
+    [Header("Movement & Jump Settings")]
     [SerializeField] float movementSpeed = 10;
     [SerializeField] float jumpForce = 20;
     [SerializeField] float jumpRememberTime = 0.2f;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float dampingValue = 0.5f;
     float jumpRememberTimer;
 
-    [Header("Player Grounded Settings")]
+    [Header("Grounded Settings")]
     [SerializeField] Transform checkGround;
     [SerializeField] float groundCheckRadius = 0.3f;
     [SerializeField] float groundedRememberTime = 0.1f;
