@@ -625,11 +625,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   movementDamping: 0.5
-  stoppingDamping: 0.5
+  stoppingDamping: 1
   turningDamping: 0.5
   jumpForce: 20
-  jumpRememberTime: 0.2
   cutJumpValue: 0.5
+  jumpCooldown: 1
   checkGround: {fileID: 43366465}
   groundCheckRadius: 0.1
   groundedRememberTime: 0.2

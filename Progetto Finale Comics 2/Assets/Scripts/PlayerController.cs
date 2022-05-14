@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Jump Settings")]
     [SerializeField] float jumpForce = 20;
-    [SerializeField] float jumpRememberTime = 0.2f;
     [Range(0f, 1f)]
     [SerializeField] float cutJumpValue = 0.5f;
+    float jumpRememberTime = 0.2f;
     float jumpRememberTimer;
 
     [Header("Grounded Settings")]
@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float groundedRememberTime = 0.1f;
     [SerializeField] LayerMask groundLayer;
     float groundedRememberTimer;
-
 
     PlayerInput playerInput;
     Vector2 direction;
@@ -72,8 +71,6 @@ public class PlayerController : MonoBehaviour
     {
         float horizontal = rb.velocity.x;
         horizontal += direction.x;
-        //horizontal *= Mathf.Pow(1f - dampingValue, Time.deltaTime * 10f);
-        //return horizontal;
 
         if (Mathf.Abs(direction.x) < 0.01f)
             horizontal *= Mathf.Pow(1f - stoppingDamping, Time.deltaTime * 10f);
