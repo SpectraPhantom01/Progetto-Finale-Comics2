@@ -576,7 +576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985635007}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.08, z: 0}
+  m_LocalPosition: {x: 0, y: -1.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -624,16 +624,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
+  movementDamping: 0.5
+  stoppingDamping: 1
+  turningDamping: 0.5
   jumpForce: 20
-  jumpRememberTime: 0.2
   cutJumpValue: 0.5
+  jumpCooldown: 1
   checkGround: {fileID: 43366465}
-  groundCheckRadius: 0.3
-  groundedRememberTime: 0.1
+  groundCheckRadius: 0.1
+  groundedRememberTime: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  isGrounded: 0
 --- !u!50 &1985635012
 Rigidbody2D:
   serializedVersion: 4
