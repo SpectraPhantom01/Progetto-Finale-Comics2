@@ -7,17 +7,18 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movemens Settings")]
     [SerializeField] float movementSpeed = 10;
-    [Range(0f, 1f)]
-    [SerializeField] float movementDamping = 0.5f;
-    [Range(0f, 1f)]
-    [SerializeField] float stoppingDamping = 0.5f;
-    [Range(0f, 1f)]
-    [SerializeField] float turningDamping = 0.5f;
+    [SerializeField] float acceleration = 7;
+    [SerializeField] float deceleration = 7;
+    //float velPower = 1;
 
     [Header("Jump Settings")]
     [SerializeField] float jumpForce = 20;
     [Range(0f, 1f)]
     [SerializeField] float cutJumpValue = 0.5f;
+    //[SerializeField] float airAcceleration = 3;
+    //[SerializeField] float airDeceleration = 3;
+    [SerializeField] float fallGravityMultiplier = 2.5f;
+    [SerializeField] float gravityScale;
     float jumpRememberTime = 0.2f;
     float jumpRememberTimer;
 
@@ -25,61 +26,96 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform checkGround;
     [SerializeField] float groundCheckRadius = 0.3f;
     [SerializeField] float groundedRememberTime = 0.1f;
-    [SerializeField] LayerMask groundLayer;
+    [SerializeField] LayerMask groundLayer;  
     float groundedRememberTimer;
 
     PlayerInput playerInput;
     Vector2 direction;
     Rigidbody2D rb;
-
+    float horizontalMove;
     bool isGrounded;
 
     //Da togliere?
     //[SerializeField] float weightOnFalling = 10f;
     //bool isFalling;
-    //float acceleration = 10;
-    //float deceleration = 10;
     //float currentSpeed = 0;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        gravityScale = rb.gravityScale;
     }
 
     private void Update()
     {
         groundedRememberTimer -= Time.deltaTime;
         jumpRememberTimer -= Time.deltaTime;
+        SetGravity();
     }
 
     void FixedUpdate()
     {
         CheckGround();
         Movement();
+        
+        //Friction();
     }
+
+    private void SetGravity()
+    {
+        if(rb.velocity.y < 0)
+        {
+            rb.gravityScale = gravityScale * fallGravityMultiplier;
+        }
+        else
+        {
+            rb.gravityScale = gravityScale;
+        }
+    }
+
+    //private void Friction()
+    //{
+    //    if(groundedRememberTimer > 0 && Mathf.Abs(direction.x) < 0.01f)
+    //    {
+    //        float amount = Mathf.Min(Mathf.Abs(rb.velocity.x), frictionAmount);
+    //        amount *= Mathf.Sign(rb.velocity.x);
+    //        rb.AddForce(Vector2.right * -amount, ForceMode2D.Impulse);
+    //    }
+    //}
 
     public void Movement()
     {
         direction = playerInput.Player.Movement.ReadValue<Vector2>();
         direction.y = 0;
-        rb.velocity = new Vector2(ApplyDamping(), rb.velocity.y);
 
-        //rb.velocity = new Vector2(direction.x * movementSpeed , rb.velocity.y);  
-    }
-
-    private float ApplyDamping()
-    {
-        float horizontal = rb.velocity.x;
-        horizontal += direction.x;
-
-        if (Mathf.Abs(direction.x) < 0.01f)
-            horizontal *= Mathf.Pow(1f - stoppingDamping, Time.deltaTime * 10f);
-        else if (Mathf.Sign(direction.x) != Mathf.Sign(horizontal))
-            horizontal *= Mathf.Pow(1f - turningDamping, Time.deltaTime * 10f);
+        if (direction.x != 0)
+        {
+            horizontalMove += direction.x * acceleration * Time.fixedDeltaTime;
+            horizontalMove = Mathf.Clamp(horizontalMove, -movementSpeed, movementSpeed);
+        }
         else
-            horizontal *= Mathf.Pow(1f - movementDamping, Time.deltaTime * 10f);
+        {
+            horizontalMove = Mathf.MoveTowards(horizontalMove, 0, deceleration * Time.fixedDeltaTime);
+        }
 
-        return horizontal;
+        rb.velocity = new Vector2(horizontalMove, rb.velocity.y);
+
+        //float targetSpeed = direction.x * movementSpeed;
+        //float speedDif = targetSpeed - rb.velocity.x;
+        //float accelRate;
+        //if (groundedRememberTime > 0)
+        //{
+        //    accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
+        //}
+        //else
+        //{
+        //    accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration * airAcceleration : deceleration * airDeceleration;
+        //}
+        //float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
+        //rb.AddForce(movement * Vector2.right);
+
+        //Altri modi per il movimento:
+        //rb.velocity = new Vector2(ApplyDamping(), rb.velocity.y);
     }
 
     public void Jump(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -89,20 +125,21 @@ public class PlayerController : MonoBehaviour
             jumpRememberTimer = 0;
             groundedRememberTimer = 0;
 
-            //Altri modi per il salto:
-            //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            //rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-
             rb.velocity = Vector2.up * jumpForce;
+
+            //Altri modi per il salto:
+            //rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            //rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+
         }
     }
 
     private void AbortJump(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (rb.velocity.y > 0)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * cutJumpValue);
-        }
+        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * cutJumpValue);
+        //rb.AddForce(Vector2.down * rb.velocity.y * (1f - cutJumpValue), ForceMode2D.Impulse);
+        jumpRememberTimer = 0;
+        groundedRememberTimer = 0;
     }
 
     private void CheckGround()
@@ -137,4 +174,6 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.DrawWireSphere(checkGround.position, groundCheckRadius);
     }
+
+    
 }
