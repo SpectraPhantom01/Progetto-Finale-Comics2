@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     float horizontalMove;
     bool isGrounded;
 
+    bool changingDirection => (rb.velocity.x > 0f && direction.x < 0f) || (rb.velocity.x < 0f && direction.x > 0f);
+
     //Da togliere?
     //[SerializeField] float weightOnFalling = 10f;
     //bool isFalling;
@@ -88,14 +90,20 @@ public class PlayerController : MonoBehaviour
         direction = playerInput.Player.Movement.ReadValue<Vector2>();
         direction.y = 0;
 
-        if (direction.x != 0)
+
+        //horizontalMove += direction.x * acceleration * Time.fixedDeltaTime;
+        //horizontalMove = Mathf.Clamp(horizontalMove, -movementSpeed, movementSpeed);
+
+        //horizontalMove = Mathf.MoveTowards(horizontalMove, 0, deceleration * Time.fixedDeltaTime);
+
+        if (Mathf.Abs(direction.x) < 0.01f || changingDirection)
         {
-            horizontalMove += direction.x * acceleration * Time.fixedDeltaTime;
-            horizontalMove = Mathf.Clamp(horizontalMove, -movementSpeed, movementSpeed);
+            horizontalMove = Mathf.MoveTowards(horizontalMove, 0, deceleration * Time.fixedDeltaTime);
         }
         else
         {
-            horizontalMove = Mathf.MoveTowards(horizontalMove, 0, deceleration * Time.fixedDeltaTime);
+            horizontalMove += direction.x * acceleration * Time.fixedDeltaTime;
+            horizontalMove = Mathf.Clamp(horizontalMove, -movementSpeed, movementSpeed);
         }
 
         rb.velocity = new Vector2(horizontalMove, rb.velocity.y);
