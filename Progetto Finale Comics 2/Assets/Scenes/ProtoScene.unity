@@ -279,7 +279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 253454308}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: PlatformObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 391109259}
   - component: {fileID: 391109260}
   - component: {fileID: 391109254}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   deltaMovement: {x: 0, y: 0}
-  rb: {fileID: 0}
 --- !u!50 &391109256
 Rigidbody2D:
   serializedVersion: 4
@@ -531,7 +530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 447000047}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -757,7 +756,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 907757022}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}

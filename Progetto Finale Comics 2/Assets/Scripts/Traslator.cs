@@ -14,7 +14,7 @@ public class Traslator : MonoBehaviour
     int index;
     float elapsed = 0;
     float position = 0;
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
 
     private void Start()
     {
@@ -33,15 +33,15 @@ public class Traslator : MonoBehaviour
             }
         }
 
-        elapsed += (Time.fixedDeltaTime / duration);
-        position = Mathf.PingPong(elapsed, 1);
-        float amount = accelerationCurve.Evaluate(position);
+        //elapsed += (Time.fixedDeltaTime / duration);
+        //position = Mathf.PingPong(elapsed, 1);
+        //float amount = accelerationCurve.Evaluate(position);
 
-        Vector2 pos = Vector2.Lerp(start.position, end.position, amount);
-        deltaMovement = pos - rb.position;
-        rb.MovePosition(pos);
+        //Vector2 pos = Vector2.Lerp(start.position, end.position, amount);
+        //deltaMovement = pos - rb.position;
+        //rb.MovePosition(pos);
 
-        //transform.position = Vector2.MoveTowards(transform.position, points[index].position, duration * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, points[index].position, duration * Time.deltaTime);
     }
 
 
