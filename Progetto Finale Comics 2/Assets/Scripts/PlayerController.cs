@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
     float horizontalMove;
     bool isGrounded;
 
+    //Rigidbody2D rbPlatform;
+    //bool isOnPlatform;
+
     bool changingDirection => (rb.velocity.x > 0f && direction.x < 0f) || (rb.velocity.x < 0f && direction.x > 0f);
 
     //Da togliere?
@@ -52,14 +55,19 @@ public class PlayerController : MonoBehaviour
     {
         groundedRememberTimer -= Time.deltaTime;
         jumpRememberTimer -= Time.deltaTime;
+
+        CheckGround();
+        Movement();
         SetGravity();
+
+        //if (isOnPlatform)
+        //{
+        //    rb.velocity += rbPlatform.GetComponent<Traslator>().deltaMovement * 50;
+        //}
     }
 
     void FixedUpdate()
     {
-        CheckGround();
-        Movement();
-        
         //Friction();
     }
 
@@ -90,40 +98,17 @@ public class PlayerController : MonoBehaviour
         direction = playerInput.Player.Movement.ReadValue<Vector2>();
         direction.y = 0;
 
-
-        //horizontalMove += direction.x * acceleration * Time.fixedDeltaTime;
-        //horizontalMove = Mathf.Clamp(horizontalMove, -movementSpeed, movementSpeed);
-
-        //horizontalMove = Mathf.MoveTowards(horizontalMove, 0, deceleration * Time.fixedDeltaTime);
-
         if (Mathf.Abs(direction.x) < 0.01f || changingDirection)
         {
-            horizontalMove = Mathf.MoveTowards(horizontalMove, 0, deceleration * Time.fixedDeltaTime);
+            horizontalMove = Mathf.MoveTowards(horizontalMove, 0, deceleration * Time.deltaTime);
         }
         else
         {
-            horizontalMove += direction.x * acceleration * Time.fixedDeltaTime;
+            horizontalMove += direction.x * acceleration * Time.deltaTime;
             horizontalMove = Mathf.Clamp(horizontalMove, -movementSpeed, movementSpeed);
         }
 
         rb.velocity = new Vector2(horizontalMove, rb.velocity.y);
-
-        //float targetSpeed = direction.x * movementSpeed;
-        //float speedDif = targetSpeed - rb.velocity.x;
-        //float accelRate;
-        //if (groundedRememberTime > 0)
-        //{
-        //    accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
-        //}
-        //else
-        //{
-        //    accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration * airAcceleration : deceleration * airDeceleration;
-        //}
-        //float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
-        //rb.AddForce(movement * Vector2.right);
-
-        //Altri modi per il movimento:
-        //rb.velocity = new Vector2(ApplyDamping(), rb.velocity.y);
     }
 
     public void Jump(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -134,18 +119,12 @@ public class PlayerController : MonoBehaviour
             groundedRememberTimer = 0;
 
             rb.velocity = Vector2.up * jumpForce;
-
-            //Altri modi per il salto:
-            //rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            //rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
-
         }
     }
 
     private void AbortJump(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * cutJumpValue);
-        //rb.AddForce(Vector2.down * rb.velocity.y * (1f - cutJumpValue), ForceMode2D.Impulse);
         jumpRememberTimer = 0;
         groundedRememberTimer = 0;
     }
@@ -183,5 +162,23 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(checkGround.position, groundCheckRadius);
     }
 
-    
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if(collision.gameObject.GetComponent<Traslator>() != null)
+    //    {
+    //        rbPlatform = collision.gameObject.GetComponent<Rigidbody2D>();
+    //        isOnPlatform = true;
+    //    }
+    //}
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.GetComponent<Traslator>() != null)
+    //    {
+    //        rbPlatform = null;
+    //        isOnPlatform = false;
+    //    }
+    //}
+
+
 }
