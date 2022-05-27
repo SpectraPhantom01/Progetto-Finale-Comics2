@@ -19,7 +19,7 @@ public class Traslator : MonoBehaviour
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        //transform.position = points[0].position;
+        transform.position = points[0].position;
     }
 
     private void FixedUpdate()
