@@ -1,38 +1,60 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Traslator : MonoBehaviour
-{
-    [SerializeField] float duration;
-    [SerializeField] Transform[] points;
-    [SerializeField] Transform start;
-    [SerializeField] Transform end;
-    public AnimationCurve accelerationCurve;
+enum TraslatorType { platform, standard } 
 
-    public Vector2 deltaMovement;
+public class Traslator : MonoBehaviour 
+{
+    [Header("Traslator Settings")]
+    [SerializeField] float duration;
+    [SerializeField] float stasisTime = 1;
+    [SerializeField] Transform[] points;
+    [SerializeField] TraslatorType traslatorType;
+
+    //[SerializeField] Transform start;
+    //[SerializeField] Transform end;
+    //public AnimationCurve accelerationCurve;
+
+    [HideInInspector] public bool isTeleporting;
+    bool active = true;
     int index;
-    float elapsed = 0;
-    float position = 0;
-    Rigidbody2D rb;
+    int i = 1;
+
+    //Vector2 deltaMovement;
+    //float elapsed = 0;
+    //float position = 0;
 
     private void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        //transform.position = points[0].position;
+        transform.position = points[0].position;
     }
 
     private void FixedUpdate()
     {
-        if (Vector2.Distance(transform.position, points[index].position) < 0.02f)
+        if (active)
         {
-            index++;
-            if (index == points.Length)
+            if (Vector2.Distance(transform.position, points[index].position) < 0.02f)
             {
-                index = 0;
+                index += i;
+                switch (traslatorType)
+                {
+                    case TraslatorType.platform:
+                        CheckTeleport();
+                        break;
+                    case TraslatorType.standard:
+                        CheckBounds();
+                        break;
+                }
             }
-        }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, points[index].position, duration * Time.fixedDeltaTime);
+            }
+    }
 
+        //MOVIMENTO ALTERNATIVO:
         //elapsed += (Time.fixedDeltaTime / duration);
         //position = Mathf.PingPong(elapsed, 1);
         //float amount = accelerationCurve.Evaluate(position);
@@ -41,14 +63,50 @@ public class Traslator : MonoBehaviour
         //deltaMovement = pos - rb.position;
         //rb.MovePosition(pos);
 
-        transform.position = Vector2.MoveTowards(transform.position, points[index].position, duration * Time.deltaTime);
     }
 
-
-    private void OnDrawGizmos()
+    private void CheckBounds()
     {
-        Gizmos.DrawLine(start.position, end.position);
+        if (index == points.Length - 1)
+        {
+            i = -1;
+        }
+        else if (index == 0)
+        {
+            i = 1;
+        }
     }
+
+    private void CheckTeleport()
+    {
+        if (index == points.Length)
+        {
+            active = false;
+            isTeleporting = true;
+            Invoke("TeleportPlatform", stasisTime);
+        }
+    }
+
+    private void TeleportPlatform()
+    {
+        index = 0;
+        transform.position = points[0].position;
+        isTeleporting = false;
+        active = true;
+    }
+
+
+    //private void OnDrawGizmos()
+    //{
+    //    //Gizmos.DrawLine(start.position, end.position);
+    //    foreach(Transform p in points)
+    //    {
+    //        for (int i = 0; i < points.Length; i++)
+    //        {
+    //            //Gizmos.DrawLine(points[i], points[i + 1]);
+    //        }
+    //    }
+    //}
 
     //private void OnTriggerStay2D(Collider2D collision)
     //{

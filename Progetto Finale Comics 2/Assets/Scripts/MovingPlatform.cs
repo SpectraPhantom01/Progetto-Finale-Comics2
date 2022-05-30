@@ -5,21 +5,17 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour
 {
     Traslator traslator;
+    GameObject player;
 
     void Start()
     {
-        traslator = GetComponent<Traslator>();
+        traslator = gameObject.GetComponent<Traslator>();
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void Update()
     {
-        if(!(collision.gameObject.layer == LayerMask.NameToLayer("Player")))
-            return;
-        //Movimento
-
-        //Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-        //rb.velocity += traslator.rb.velocity;
-        
+        if(traslator.isTeleporting && player)
+            player.transform.parent = null;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,6 +23,7 @@ public class MovingPlatform : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             collision.gameObject.transform.SetParent(gameObject.transform, true);
+            player = collision.gameObject;
         }
     }
 
@@ -35,6 +32,7 @@ public class MovingPlatform : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             collision.gameObject.transform.parent = null;
+            player = null;
         }
     }
 

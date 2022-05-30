@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     float groundedRememberTimer;
 
     PlayerInput playerInput;
+    PlayerBehaviour playerBehaviour;
     Vector2 direction;
     Rigidbody2D rb;
     float horizontalMove;
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gravityScale = rb.gravityScale;
+        playerBehaviour = GetComponent<PlayerBehaviour>();
     }
 
     private void Update()
@@ -145,6 +147,12 @@ public class PlayerController : MonoBehaviour
         playerInput.Player.Jump.started += SetJumpTimer;
         playerInput.Player.Jump.performed += Jump;
         playerInput.Player.Jump.canceled += AbortJump;
+        playerInput.Player.Explosion.performed += PlayerExplosion;
+    }
+
+    private void PlayerExplosion(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        playerBehaviour.Explosion();
     }
 
     private void SetJumpTimer(UnityEngine.InputSystem.InputAction.CallbackContext obj)
