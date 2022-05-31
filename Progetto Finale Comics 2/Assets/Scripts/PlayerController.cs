@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundLayer;  
     float groundedRememberTimer;
 
+    [Header("Animator Settings")]
+    [SerializeField] Animator animator;
+    [SerializeField] SpriteRenderer flipDirection;
+
     PlayerInput playerInput;
     PlayerBehaviour playerBehaviour;
     Vector2 direction;
@@ -61,11 +65,26 @@ public class PlayerController : MonoBehaviour
         CheckGround();
         Movement();
         SetGravity();
+        AnimationSet();
 
         //if (isOnPlatform)
         //{
         //    rb.velocity += rbPlatform.GetComponent<Traslator>().deltaMovement * 50;
         //}
+    }
+
+    private void AnimationSet()
+    {
+        if (rb.velocity.x < 0)
+        {
+            flipDirection.flipX = true;
+        }
+        if (rb.velocity.x > 0)
+        {
+            flipDirection.flipX = false;
+        }
+        animator.SetFloat("X Velocity", Math.Abs(rb.velocity.x));
+        animator.SetFloat("Y Velocity", rb.velocity.y);
     }
 
     void FixedUpdate()

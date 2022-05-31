@@ -561,6 +561,11 @@ Transform:
   m_Father: {fileID: 253454308}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &451526352 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 428764791698312897, guid: 832c08cd867bd634d9cf045b356153e7, type: 3}
+  m_PrefabInstance: {fileID: 1531379477}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,6 +1036,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1943630758652616411, guid: 832c08cd867bd634d9cf045b356153e7, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 451526352}
+    - target: {fileID: 1943630758652616411, guid: 832c08cd867bd634d9cf045b356153e7, type: 3}
+      propertyPath: flipDirection
+      value: 
+      objectReference: {fileID: 2085544857}
+    - target: {fileID: 1943630758652616412, guid: 832c08cd867bd634d9cf045b356153e7, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 832c08cd867bd634d9cf045b356153e7, type: 3}
 --- !u!1 &1573119971
@@ -1126,6 +1143,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  animator: {fileID: 0}
+  flipDirection: {fileID: 0}
 --- !u!50 &1985635012
 Rigidbody2D:
   serializedVersion: 4
@@ -1189,3 +1208,8 @@ MonoBehaviour:
   offsetExplosion: 1
   direction: {x: 0, y: 0}
   distance: 0
+--- !u!212 &2085544857 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1943630759224568953, guid: 832c08cd867bd634d9cf045b356153e7, type: 3}
+  m_PrefabInstance: {fileID: 1531379477}
+  m_PrefabAsset: {fileID: 0}
