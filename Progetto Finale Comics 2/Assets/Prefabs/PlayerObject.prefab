@@ -57,7 +57,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &1943630758652616413
 CapsuleCollider2D:
@@ -120,6 +120,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  animator: {fileID: 428764791698312897}
+  flipDirection: {fileID: 1943630759224568953}
 --- !u!114 &6726281273754058226
 MonoBehaviour:
   m_ObjectHideFlags: 0
