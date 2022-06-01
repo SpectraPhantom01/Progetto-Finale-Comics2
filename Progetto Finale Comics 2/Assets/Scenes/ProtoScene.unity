@@ -294,7 +294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255058744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.79, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -522,7 +522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864903549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.28, y: 2.02, z: 0}
+  m_LocalPosition: {x: -8.44, y: 3.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -564,8 +564,7 @@ LineRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -597,7 +596,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.25766945
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -643,7 +642,7 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
-  m_Loop: 0
+  m_Loop: 1
 --- !u!1 &1007460232
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,11 +849,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943630758652616408, guid: 832c08cd867bd634d9cf045b356153e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.86
       objectReference: {fileID: 0}
     - target: {fileID: 1943630758652616408, guid: 832c08cd867bd634d9cf045b356153e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.17
+      value: -2.48
       objectReference: {fileID: 0}
     - target: {fileID: 1943630758652616408, guid: 832c08cd867bd634d9cf045b356153e7, type: 3}
       propertyPath: m_LocalPosition.z

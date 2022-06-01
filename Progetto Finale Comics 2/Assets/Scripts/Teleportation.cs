@@ -14,6 +14,7 @@ public class Teleportation : MonoBehaviour
     {
         teleportPoint = this.gameObject.transform.parent.transform.GetChild(1); //risale al padre per poi prendere il transform del secondo figlio
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
