@@ -21,6 +21,7 @@ public class Teleportation : MonoBehaviour
         {
             animator.SetBool("Charging", true);
             player = collision.gameObject;
+            TeleportSoundStart();
         }    
         
     }
@@ -30,11 +31,21 @@ public class Teleportation : MonoBehaviour
         {
             animator.SetBool("Charging", false);
             player = null;
+            TeleportSoundStop();
         }
     }
 
     void Teleport()
     {
         player.transform.position = teleportPoint.position;
+    }
+
+    void TeleportSoundStart()
+    {
+        gameObject.GetComponent<AudioSource>().Play();
+    }
+    private void TeleportSoundStop()
+    {
+        gameObject.GetComponent<AudioSource>().Stop();
     }
 }

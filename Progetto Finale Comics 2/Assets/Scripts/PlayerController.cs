@@ -140,6 +140,7 @@ public class PlayerController : MonoBehaviour
             groundedRememberTimer = 0;
 
             rb.velocity = Vector2.up * jumpForce;
+            FindObjectOfType<AudioManager>().Play("Jump");
         }
     }
 
