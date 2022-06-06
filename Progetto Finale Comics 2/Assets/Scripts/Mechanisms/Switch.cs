@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Switch : MonoBehaviour
 {
+    [Header("Switch Settings")]
     public bool oneTime;
     bool active;
 
@@ -23,11 +24,13 @@ public class Switch : MonoBehaviour
         {
             active = true;
             //animator.SetBool("State", attivata);
+            Debug.Log(".");
         }
         else if (!oneTime && active)
         {
             active = false;
             //animator.SetBool("State", attivata);
+            Debug.Log("..");
         }
     }
 
