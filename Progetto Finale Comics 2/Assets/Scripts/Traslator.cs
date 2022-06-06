@@ -52,7 +52,6 @@ public class Traslator : MonoBehaviour
             {
                 transform.position = Vector2.MoveTowards(transform.position, points[index].position, duration * Time.fixedDeltaTime);
             }
-        
     }
 
         //MOVIMENTO ALTERNATIVO:
