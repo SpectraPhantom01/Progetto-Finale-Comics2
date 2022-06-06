@@ -136,8 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1.5
   offsetExplosion: 0.9
-  direction: {x: 0, y: 0}
-  distance: 0
+  distance: 1.5
 --- !u!1 &1943630759224568903
 GameObject:
   m_ObjectHideFlags: 0

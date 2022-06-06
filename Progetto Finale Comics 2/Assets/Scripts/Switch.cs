@@ -23,11 +23,13 @@ public class Switch : MonoBehaviour
         {
             active = true;
             //animator.SetBool("State", attivata);
+            Debug.Log(".");
         }
         else if (!oneTime && active)
         {
             active = false;
             //animator.SetBool("State", attivata);
+            Debug.Log("..");
         }
     }
 
