@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Switch : MonoBehaviour
 {
+    [Header("Switch Settings")]
     public bool oneTime;
     bool active;
 
