@@ -57,3 +57,15 @@ MonoBehaviour:
     pitch: 0.6
     loop: 0
     source: {fileID: 0}
+  - name: Apri porta
+    clip: {fileID: 8300000, guid: 06637085c813e574390e9e74dacdfdbc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Chiudi porta
+    clip: {fileID: 8300000, guid: 5bcf4cdbbdd1b5b42bdf13d5422698b2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

@@ -42,10 +42,10 @@ public class Teleportation : MonoBehaviour
 
     void TeleportSoundStart()
     {
-        gameObject.GetComponent<AudioSource>().Play();
+        FindObjectOfType<AudioManager>().Play("Teletrasporto");
     }
     private void TeleportSoundStop()
     {
-        gameObject.GetComponent<AudioSource>().Stop();
+        FindObjectOfType<AudioManager>().Stop("Teletrasporto");
     }
 }
