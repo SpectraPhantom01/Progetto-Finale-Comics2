@@ -47,7 +47,7 @@ MonoBehaviour:
   sounds:
   - name: Theme
     clip: {fileID: 8300000, guid: 43d7e0597ba1db44ca246ff6e80acee9, type: 3}
-    volume: 0.5
+    volume: 0.3
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -59,13 +59,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Apri porta
     clip: {fileID: 8300000, guid: 06637085c813e574390e9e74dacdfdbc, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Chiudi porta
     clip: {fileID: 8300000, guid: 5bcf4cdbbdd1b5b42bdf13d5422698b2, type: 3}
-    volume: 1
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Teletrasporto
+    clip: {fileID: 8300000, guid: 2a32bef6ae1f4a54caf191ac1bb4778c, type: 3}
+    volume: 0.8
     pitch: 1
     loop: 0
     source: {fileID: 0}

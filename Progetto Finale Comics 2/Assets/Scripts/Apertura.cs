@@ -17,10 +17,10 @@ public class Apertura : MonoBehaviour
 
     private void suonoapertura()
     {
-        FindObjectOfType<AudioManager>().Play("Apri porta");
+        AudioManager.instance.Play("Apri porta");
     }
     private void suonochiusura()
     {
-        FindObjectOfType<AudioManager>().Play("Chiudi porta");
+        AudioManager.instance.Play("Chiudi porta");
     }
 }
