@@ -11,8 +11,22 @@ public class PlayerBehaviour : MonoBehaviour
     //[SerializeField] Vector2 direction;
     [SerializeField] float distance;
     [SerializeField] UnityEvent onDeath;
+    [SerializeField] UnityEvent endExplosion;
+    
+
+    //Animator animator;
+
+    private void Start()
+    {
+        //animator = GetComponent<Animator>();
+    }
 
     public void Explosion()
+    {
+        //Attivazione animazione esplosione
+    }
+
+    public void ExplosionEvent()
     {
         RaycastHit2D[] hit = Physics2D.CircleCastAll((Vector2)transform.position + new Vector2(0, offsetExplosion), radius, Vector2.up, distance);
 
@@ -21,12 +35,25 @@ public class PlayerBehaviour : MonoBehaviour
             Interactable interactable = h.collider.gameObject.GetComponent<Interactable>();
             if (interactable)
             {
-                interactable.action.Invoke();
-            }
-        }
+                //interactable.action.Invoke();
 
+                //Registrazione:
+                //interactable.Record();
+                
+            }
+        }    
+    }
+
+    public void DeathEvent()
+    {
+        //Momento effettivo dell'esplosione
         onDeath.Invoke();
-        
+    }
+
+    public void EndExplosionEvent()
+    {
+        endExplosion.Invoke();
+        //Richiamo del fade out
     }
 
 

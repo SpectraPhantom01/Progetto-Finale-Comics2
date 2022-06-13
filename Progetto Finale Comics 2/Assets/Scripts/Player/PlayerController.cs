@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    public void OnEnable()
     {
         playerInput = new PlayerInput();
         playerInput.Player.Enable();
@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerExplosion(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        playerBehaviour.Explosion();
+        playerBehaviour.ExplosionEvent();
     }
 
     private void SetJumpTimer(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -180,7 +180,7 @@ public class PlayerController : MonoBehaviour
         jumpRememberTimer = jumpRememberTime;
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         playerInput.Player.Disable();
     }
