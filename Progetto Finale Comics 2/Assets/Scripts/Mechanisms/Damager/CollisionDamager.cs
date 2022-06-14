@@ -9,7 +9,7 @@ public class CollisionDamager : MonoBehaviour
         PlayerBehaviour playerBehaviour = collision.gameObject.GetComponent<PlayerBehaviour>();
         if (playerBehaviour != null)
         {
-            playerBehaviour.ExplosionEvent();
+            playerBehaviour.Explosion();
         }
     }
 }

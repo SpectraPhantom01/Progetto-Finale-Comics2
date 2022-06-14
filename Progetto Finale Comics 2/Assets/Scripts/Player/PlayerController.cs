@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        playerInput = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
         gravityScale = rb.gravityScale;
         playerBehaviour = GetComponent<PlayerBehaviour>();
@@ -162,7 +163,6 @@ public class PlayerController : MonoBehaviour
 
     public void OnEnable()
     {
-        playerInput = new PlayerInput();
         playerInput.Player.Enable();
         playerInput.Player.Jump.started += SetJumpTimer;
         playerInput.Player.Jump.performed += Jump;
@@ -172,7 +172,9 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerExplosion(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        playerBehaviour.ExplosionEvent();
+        //playerBehaviour.ExplosionEvent();
+        //playerBehaviour.ExplosionAnimation(animator);
+        animator.SetTrigger("Explosion");
     }
 
     private void SetJumpTimer(UnityEngine.InputSystem.InputAction.CallbackContext obj)

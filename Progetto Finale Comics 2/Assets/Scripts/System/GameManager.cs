@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
         interactableListener?.Invoke();
     }
 
+    //public void ClearInteractableListener()
+    //{
+        
+    //}
+
 
 
 

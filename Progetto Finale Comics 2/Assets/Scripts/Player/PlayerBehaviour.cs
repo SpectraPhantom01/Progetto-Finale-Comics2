@@ -10,9 +10,11 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] float offsetExplosion;
     //[SerializeField] Vector2 direction;
     [SerializeField] float distance;
+
+    [Header("Explosion Animation Event")]
+    [SerializeField] UnityEvent preparation;
     [SerializeField] UnityEvent onDeath;
     [SerializeField] UnityEvent endExplosion;
-    
 
     //Animator animator;
 
@@ -21,12 +23,13 @@ public class PlayerBehaviour : MonoBehaviour
         //animator = GetComponent<Animator>();
     }
 
-    public void Explosion()
-    {
-        //Attivazione animazione esplosione
-    }
+    //public void ExplosionAnimation(Animator animator)
+    //{
+    //    //Attivazione animazione esplosione
+    //    animator.SetTrigger("Explosion");
+    //}
 
-    public void ExplosionEvent()
+    public void Explosion()
     {
         RaycastHit2D[] hit = Physics2D.CircleCastAll((Vector2)transform.position + new Vector2(0, offsetExplosion), radius, Vector2.up, distance);
 
@@ -38,22 +41,25 @@ public class PlayerBehaviour : MonoBehaviour
                 //interactable.action.Invoke();
 
                 //Registrazione:
-                //interactable.Record();
-                
+                Debug.Log("...");
+                interactable.Record();           
             }
         }    
     }
 
+    public void PreparationEvent()
+    {
+        preparation.Invoke();
+    }
+
     public void DeathEvent()
     {
-        //Momento effettivo dell'esplosione
         onDeath.Invoke();
     }
 
     public void EndExplosionEvent()
     {
         endExplosion.Invoke();
-        //Richiamo del fade out
     }
 
 
