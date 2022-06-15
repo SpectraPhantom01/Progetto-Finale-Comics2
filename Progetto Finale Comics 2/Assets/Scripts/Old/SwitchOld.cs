@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Switch : Interactable
+public class SwitchOld : MonoBehaviour
 {
     public bool oneTime;
     bool active;
-    public UnityEvent LeverEvent;
-    //Animator animator;
-    GameManager gameManager;
 
-    private void Awake()
+    public UnityEvent LeverEvent;
+
+    //Animator animator;
+
+    private void Start()
     {
         //animator = GetComponent<Animator>();
-        gameManager = GameObject.Find("GameManager").gameObject.GetComponent<GameManager>();
     }
 
     public void LeverState()
@@ -31,15 +31,8 @@ public class Switch : Interactable
         }
     }
 
-    private void Event()
+    public void LeverAnimationEvent()
     {
         LeverEvent.Invoke();
-        Debug.Log("BRUUUH");
-    }
-
-    public override void Record()
-    {
-        LeverState();
-        gameManager.interactableListener += Event;
     }
 }
