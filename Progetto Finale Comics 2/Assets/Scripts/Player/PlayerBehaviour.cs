@@ -41,7 +41,7 @@ public class PlayerBehaviour : MonoBehaviour
                 //interactable.action.Invoke();
 
                 //Registrazione:
-                Debug.Log("...");
+                Debug.Log("Registrato");
                 interactable.Record();           
             }
         }    
