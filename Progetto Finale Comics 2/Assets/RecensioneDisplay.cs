@@ -13,7 +13,7 @@ public class RecensioneDisplay : MonoBehaviour
     public TextMeshProUGUI descrizione;
     public TextMeshProUGUI valutazioneText;
 
-    public Image sfondo;
+    //public Image sfondo;
     public Image valutazione;
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class RecensioneDisplay : MonoBehaviour
         descrizione.text = recensione.descrizione;
         valutazioneText.text = recensione.valutazioneText;
 
-        sfondo.sprite = recensione.sfondo;
+        //sfondo.sprite = recensione.sfondo;
         valutazione.sprite = recensione.valutazione;
     }
 }
