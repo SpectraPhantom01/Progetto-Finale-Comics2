@@ -3,24 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerBehaviour : MonoBehaviour
+public class ExplosionBehaviour : MonoBehaviour
 {
-    [Header("Explosion Settings")]
-    [SerializeField] float radius;
-    [SerializeField] float offsetExplosion;
-    //[SerializeField] Vector2 direction;
-    [SerializeField] float distance;
-
     [Header("Explosion Animation Event")]
-    [SerializeField] UnityEvent preparation;
-    [SerializeField] UnityEvent onDeath;
-    [SerializeField] UnityEvent endExplosion;
+    UnityEvent endExplosion;
 
-    //Animator animator;
+    float radius;
+    float offsetExplosion;
+    float distance;
+    //[SerializeField] Vector2 direction;
+
+    Animator animator;
 
     private void Start()
     {
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     //public void ExplosionAnimation(Animator animator)
@@ -28,6 +25,14 @@ public class PlayerBehaviour : MonoBehaviour
     //    //Attivazione animazione esplosione
     //    animator.SetTrigger("Explosion");
     //}
+
+    public void InitializeExplosion(float offsetExplosion, float radius, float distance, UnityEvent unityEvent)
+    {
+        this.offsetExplosion = offsetExplosion;
+        this.radius = radius;
+        this.distance = distance;
+        endExplosion = unityEvent;
+    }
 
     public void Explosion()
     {
@@ -42,30 +47,15 @@ public class PlayerBehaviour : MonoBehaviour
 
                 //Registrazione:
                 Debug.Log("Registrato");
-                interactable.Record();           
+                interactable.Record();
             }
-        }    
-    }
-
-    public void PreparationEvent()
-    {
-        preparation.Invoke();
-    }
-
-    public void DeathEvent()
-    {
-        onDeath.Invoke();
+        }
     }
 
     public void EndExplosionEvent()
     {
         endExplosion.Invoke();
+        Destroy(gameObject);
     }
 
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere((Vector2)transform.position + new Vector2(0, offsetExplosion), radius);
-        Gizmos.DrawWireSphere((Vector2)transform.position + new Vector2(0, distance), radius);
-    }
 }

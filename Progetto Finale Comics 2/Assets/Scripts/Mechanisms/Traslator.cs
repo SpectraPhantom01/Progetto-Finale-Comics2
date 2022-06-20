@@ -18,7 +18,7 @@ public class Traslator : MonoBehaviour
     //public AnimationCurve accelerationCurve;
 
     [HideInInspector] public bool isTeleporting;
-    bool active = true;
+    public bool active = true;
     int index;
     int i = 1;
 
@@ -51,8 +51,8 @@ public class Traslator : MonoBehaviour
             else
             {
                 transform.position = Vector2.MoveTowards(transform.position, points[index].position, duration * Time.fixedDeltaTime);
-            }
-    }
+            }      
+        }
 
         //MOVIMENTO ALTERNATIVO:
         //elapsed += (Time.fixedDeltaTime / duration);
@@ -93,6 +93,20 @@ public class Traslator : MonoBehaviour
         transform.position = points[0].position;
         isTeleporting = false;
         active = true;
+    }
+
+    public void PlatformState()
+    {
+        if (!active)
+        {
+            active = true;
+            //animator.SetBool("State", active);
+        }
+        else
+        {
+            active = false;
+            //animator.SetBool("State", active);
+        }
     }
 
 

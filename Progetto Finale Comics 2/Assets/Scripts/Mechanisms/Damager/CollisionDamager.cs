@@ -6,7 +6,7 @@ public class CollisionDamager : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        PlayerBehaviour playerBehaviour = collision.gameObject.GetComponent<PlayerBehaviour>();
+        ExplosionBehaviour playerBehaviour = collision.gameObject.GetComponent<ExplosionBehaviour>();
         if (playerBehaviour != null)
         {
             playerBehaviour.Explosion();

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,8 +34,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer flipDirection;
 
+    [Header("Explosion Settings")]
+    [SerializeField] GameObject prefabExplosion;
+    [SerializeField] float radius;
+    [SerializeField] float offsetExplosion;
+    //[SerializeField] Vector2 direction;
+    [SerializeField] float distance;
+    //[SerializeField] UnityEvent preparation;
+    //[SerializeField] UnityEvent endPreparation;
+    [SerializeField] UnityEvent fade;
+
     PlayerInput playerInput;
-    PlayerBehaviour playerBehaviour;
     Vector2 direction;
     Rigidbody2D rb;
     float horizontalMove;
@@ -55,7 +65,6 @@ public class PlayerController : MonoBehaviour
         playerInput = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
         gravityScale = rb.gravityScale;
-        playerBehaviour = GetComponent<PlayerBehaviour>();
     }
 
     private void Update()
@@ -87,6 +96,17 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("X Velocity", Math.Abs(rb.velocity.x));
         animator.SetFloat("Y Velocity", rb.velocity.y);
     }
+
+
+    //public void PreparationEvent() //Da togliere?
+    //{
+    //    preparation.Invoke();
+    //}
+
+    //public void EndPreparationEvent() //Da togliere?
+    //{
+    //    endPreparation.Invoke();
+    //}
 
     void FixedUpdate()
     {
@@ -142,7 +162,9 @@ public class PlayerController : MonoBehaviour
 
             rb.velocity = Vector2.up * jumpForce;
             AudioManager.instance.Play("Jump");
+            
         }
+        //animator.SetBool("isGrounded", false);
     }
 
     private void AbortJump(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -150,6 +172,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * cutJumpValue);
         jumpRememberTimer = 0;
         groundedRememberTimer = 0;
+        //animator.SetBool("isGrounded", false);
     }
 
     private void CheckGround()
@@ -158,23 +181,8 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             groundedRememberTimer = groundedRememberTime;
+            //animator.SetBool("isGrounded", true);
         }
-    }
-
-    public void OnEnable()
-    {
-        playerInput.Player.Enable();
-        playerInput.Player.Jump.started += SetJumpTimer;
-        playerInput.Player.Jump.performed += Jump;
-        playerInput.Player.Jump.canceled += AbortJump;
-        playerInput.Player.Explosion.performed += PlayerExplosion;
-    }
-
-    private void PlayerExplosion(UnityEngine.InputSystem.InputAction.CallbackContext obj)
-    {
-        //playerBehaviour.ExplosionEvent();
-        //playerBehaviour.ExplosionAnimation(animator);
-        animator.SetTrigger("Explosion");
     }
 
     private void SetJumpTimer(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -182,15 +190,52 @@ public class PlayerController : MonoBehaviour
         jumpRememberTimer = jumpRememberTime;
     }
 
+    private void PlayerExplosion(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        animator.SetTrigger("Explosion");
+    }
+
+    public void SetExplosion() //Al posto di EndExplosionEvent
+    {  
+        GameObject explosion = Instantiate(prefabExplosion, (Vector2)transform.position + new Vector2(0, offsetExplosion), transform.rotation);
+        explosion.GetComponent<ExplosionBehaviour>().InitializeExplosion(offsetExplosion, radius, distance, fade);
+
+        GetComponentInChildren<SpriteRenderer>().enabled = false;      
+    }
+
+    public void OnEnable()
+    {
+        playerInput.Player.Enable();
+
+        playerInput.Player.Jump.started += SetJumpTimer;
+        playerInput.Player.Jump.performed += Jump;
+        playerInput.Player.Jump.canceled += AbortJump;
+        playerInput.Player.Explosion.performed += PlayerExplosion;
+
+        //rb.isKinematic = false;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        GetComponent<Collider2D>().enabled = true;
+        GetComponentInChildren<SpriteRenderer>().enabled = true;
+    }
+
     public void OnDisable()
     {
         playerInput.Player.Disable();
+        //rb.isKinematic = true;
+        rb.bodyType = RigidbodyType2D.Static;
+        GetComponent<Collider2D>().enabled = false;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(checkGround.position, groundCheckRadius);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere((Vector2)transform.position + new Vector2(0, offsetExplosion), radius);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere((Vector2)transform.position + new Vector2(0, distance), radius);
     }
+
 
     //private void OnCollisionEnter2D(Collision2D collision)
     //{

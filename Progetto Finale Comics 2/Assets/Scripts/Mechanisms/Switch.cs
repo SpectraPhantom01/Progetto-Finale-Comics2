@@ -22,12 +22,12 @@ public class Switch : Interactable
         if (!active)
         {
             active = true;
-            //animator.SetBool("State", attivata);
+            //animator.SetBool("State", active);
         }
         else if (!oneTime && active)
         {
             active = false;
-            //animator.SetBool("State", attivata);
+            //animator.SetBool("State", active);
         }
     }
 
