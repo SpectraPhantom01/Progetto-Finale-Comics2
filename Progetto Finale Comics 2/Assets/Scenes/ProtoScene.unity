@@ -1880,6 +1880,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1409785850523115932, guid: 296f96998158afd4fa08d6833449d23f, type: 3}
+      propertyPath: sounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409785850523115932, guid: 296f96998158afd4fa08d6833449d23f, type: 3}
+      propertyPath: sounds.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 924b59615f5978842be1495172346fa3, type: 3}
+    - target: {fileID: 1409785850523115932, guid: 296f96998158afd4fa08d6833449d23f, type: 3}
+      propertyPath: sounds.Array.data[6].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409785850523115932, guid: 296f96998158afd4fa08d6833449d23f, type: 3}
+      propertyPath: sounds.Array.data[6].name
+      value: Allarm
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409785850523115932, guid: 296f96998158afd4fa08d6833449d23f, type: 3}
+      propertyPath: sounds.Array.data[6].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409785850523115932, guid: 296f96998158afd4fa08d6833449d23f, type: 3}
+      propertyPath: sounds.Array.data[6].volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1409785850523115933, guid: 296f96998158afd4fa08d6833449d23f, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -1943,7 +1967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5297511825136309794, guid: 86a6d9c34669816418959c6f3586201a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.972
+      value: 9.027
       objectReference: {fileID: 0}
     - target: {fileID: 5297511825136309794, guid: 86a6d9c34669816418959c6f3586201a, type: 3}
       propertyPath: m_LocalPosition.y

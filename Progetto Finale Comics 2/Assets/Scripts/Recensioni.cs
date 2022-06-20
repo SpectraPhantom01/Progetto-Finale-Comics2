@@ -10,6 +10,6 @@ public class Recensioni : ScriptableObject
     public string descrizione;
     public string valutazioneText;
 
-    public Sprite sfondo;
+    //public Sprite sfondo;
     public Sprite valutazione;
 }

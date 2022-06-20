@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb31801feae07b94a85438ae00e38b15, type: 3}
+  m_Name: Email 1 prova
+  m_EditorClassIdentifier: 
+  titolo: Rinnovo progetto
+  mittente: 'Da: AfkProduction - Afk srl <uffici@akf.it>'
+  data: 'Data: 02/12/20'
+  oggetto: 'Oggetto: Salve, la ricontatto come da accordi per informarla che a seguito
+    della riunione aziendale del 27/11/20 i vertici della Afk srl si sono definiti
+    soddisfatti dei risultati ottenuti dal suo team di sviluppo. In seguito a tale
+    riunione i vertici dell''associazione hanno deciso che sarebbero disposti a finanziare
+    un eventuale secondo capitolo del gioco  "Do you want to explode" affidando a
+    lei il ruolo di project leader. '
