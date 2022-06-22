@@ -14,6 +14,7 @@ public class Alarm : MonoBehaviour
     public void AlarmActivation()
     {
         activation.Invoke();
+
         timer = activeTime;
         StartCoroutine(Countdown());
     }
@@ -21,21 +22,24 @@ public class Alarm : MonoBehaviour
     public void AlarmDeactivation()
     {
         //deactivation.Invoke();
-
         activation.Invoke();
+
         timer = 0;
         StopCoroutine(Countdown());
     }
 
     private IEnumerator Countdown()
     {
-        timer -= Time.deltaTime;
-
-        if (timer < 0)
+        while (timer > 0)
         {
-            AlarmDeactivation();
-        }
-        yield return null;
+            timer -= Time.deltaTime;
+
+            if (timer < 0)
+            {
+                AlarmDeactivation();
+            }
+            yield return null;
+        }  
     }
 
 

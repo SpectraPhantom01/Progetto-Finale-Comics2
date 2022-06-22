@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+//public enum PlayerState { Normal, Exposion }
+
 public class PlayerController : MonoBehaviour
 {
     [Header("Movemens Settings")]
     [SerializeField] float movementSpeed = 10;
     [SerializeField] float acceleration = 7;
     [SerializeField] float deceleration = 7;
+    float movementModifier = 1;
     //float velPower = 1;
 
     [Header("Jump Settings")]
@@ -49,6 +52,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     float horizontalMove;
     bool isGrounded;
+    //PlayerState state;
 
     //Rigidbody2D rbPlatform;
     //bool isOnPlatform;
@@ -72,10 +76,19 @@ public class PlayerController : MonoBehaviour
         groundedRememberTimer -= Time.deltaTime;
         jumpRememberTimer -= Time.deltaTime;
 
-        CheckGround();
-        Movement();
-        SetGravity();
-        AnimationSet();
+        //switch (state)
+        //{
+        //    case PlayerState.Normal:
+                CheckGround();
+                Movement();
+                SetGravity();
+                AnimationSet();
+        //        break;
+        //    //case PlayerState.Exposion:
+        //    //    break;
+        //}
+
+        
 
         //if (isOnPlatform)
         //{
@@ -150,7 +163,7 @@ public class PlayerController : MonoBehaviour
             horizontalMove = Mathf.Clamp(horizontalMove, -movementSpeed, movementSpeed);
         }
 
-        rb.velocity = new Vector2(horizontalMove, rb.velocity.y);
+        rb.velocity = new Vector2(horizontalMove * movementModifier, rb.velocity.y);
     }
 
     public void Jump(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -193,14 +206,23 @@ public class PlayerController : MonoBehaviour
     private void PlayerExplosion(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         animator.SetTrigger("Explosion");
+        //state = PlayerState.Exposion;
     }
 
     public void SetExplosion() //Al posto di EndExplosionEvent
-    {  
+    {
+        if (!isGrounded)
+            rb.bodyType = RigidbodyType2D.Static;
+
         GameObject explosion = Instantiate(prefabExplosion, (Vector2)transform.position + new Vector2(0, offsetExplosion), transform.rotation);
         explosion.GetComponent<ExplosionBehaviour>().InitializeExplosion(offsetExplosion, radius, distance, fade);
 
         GetComponentInChildren<SpriteRenderer>().enabled = false;      
+    }
+
+    public void SetMovementModifier(float modifier)
+    {
+        movementModifier = modifier;
     }
 
     public void OnEnable()
@@ -212,17 +234,17 @@ public class PlayerController : MonoBehaviour
         playerInput.Player.Jump.canceled += AbortJump;
         playerInput.Player.Explosion.performed += PlayerExplosion;
 
-        //rb.isKinematic = false;
         rb.bodyType = RigidbodyType2D.Dynamic;
         GetComponent<Collider2D>().enabled = true;
         GetComponentInChildren<SpriteRenderer>().enabled = true;
+        //state = PlayerState.Normal;
     }
 
     public void OnDisable()
     {
         playerInput.Player.Disable();
-        //rb.isKinematic = true;
-        rb.bodyType = RigidbodyType2D.Static;
+        if(isGrounded)
+            rb.bodyType = RigidbodyType2D.Static;
         GetComponent<Collider2D>().enabled = false;
     }
 
