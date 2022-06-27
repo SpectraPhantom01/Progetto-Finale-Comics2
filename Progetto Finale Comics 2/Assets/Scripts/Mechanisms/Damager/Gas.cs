@@ -5,58 +5,59 @@ using UnityEngine;
 public class Gas : MonoBehaviour
 {
     [Header("Gas Settings")]
-    [SerializeField] float speed;
+    [SerializeField] Canvas canvas;
+    [SerializeField] float speedModifier;
     [SerializeField] float time;
+
+    PlayerController player;
     float timer;
-    float realSpeed;
 
     private IEnumerator Countdown()
     {
-        timer -= Time.deltaTime;
+        while(timer > 0)
+        {
+            timer -= Time.deltaTime;
 
-        if(timer < 0)
-        { 
-            //Esplosione
+            if (timer < 0)
+            {
+                //Esplosione
+                player.SetExplosion();
+                ResetCountdown();
+            }
+            yield return null;
         }
-        yield return null;
     }
 
     private void StartCountdown()
     {
         timer = time;
-
-        //Assegnazione speed
-        
-        //Real Speed terrà a mente la speed originale
-
         StartCoroutine(Countdown());
     }
 
     private void ResetCountdown()
     {
-        timer = 0;
-
-        //Viene riassegnata la speed originale
-
         StopCoroutine(Countdown());
+        timer = 0;
+        player = null;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerController playerController = GetComponent<PlayerController>();
+        PlayerController playerController = collision.GetComponent<PlayerController>();
         if (playerController != null)
         {
-            
+            playerController.SetMovementModifier(speedModifier);
+            player = playerController;
             StartCountdown();
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        PlayerController playerController = GetComponent<PlayerController>();
+        PlayerController playerController = collision.GetComponent<PlayerController>();
         if (playerController != null)
         {
-            
+            playerController.SetMovementModifier(1);
             ResetCountdown();
         }
     }

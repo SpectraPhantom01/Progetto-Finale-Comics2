@@ -7,7 +7,7 @@ public class Apertura : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
-    private void aprichiudi()
+    public void aprichiudi()
     {
         if (animator.GetBool("Apertura"))
             animator.SetBool("Apertura", false);
