@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c57d2290756b4418e1ed497a3a2cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: Theme
+  music: Dark
 --- !u!1 &1409785850523115933
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +123,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Dark
     clip: {fileID: 8300000, guid: 924b59615f5978842be1495172346fa3, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Bip
+    clip: {fileID: 8300000, guid: 315a4f40066184e4093fcd566dd992f3, type: 3}
     volume: 0.1
     pitch: 1
     loop: 0
