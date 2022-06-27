@@ -34,7 +34,7 @@ public class Switch : Interactable
     private void Event()
     {
         LeverEvent.Invoke();
-        Debug.Log("Attivazione evento");
+        gameManager.interactableListener -= Event;
     }
 
     public override void Record()

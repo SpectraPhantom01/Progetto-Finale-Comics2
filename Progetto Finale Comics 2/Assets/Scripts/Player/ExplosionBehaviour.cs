@@ -5,20 +5,12 @@ using UnityEngine.Events;
 
 public class ExplosionBehaviour : MonoBehaviour
 {
-    [Header("Explosion Animation Event")]
     UnityEvent endExplosion;
 
     float radius;
     float offsetExplosion;
     float distance;
     //[SerializeField] Vector2 direction;
-
-    Animator animator;
-
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
 
     //public void ExplosionAnimation(Animator animator)
     //{
@@ -43,10 +35,6 @@ public class ExplosionBehaviour : MonoBehaviour
             Interactable interactable = h.collider.gameObject.GetComponent<Interactable>();
             if (interactable)
             {
-                //interactable.action.Invoke();
-
-                //Registrazione:
-                Debug.Log("Registrato");
                 interactable.Record();
             }
         }

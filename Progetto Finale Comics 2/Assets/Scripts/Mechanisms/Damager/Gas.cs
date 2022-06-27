@@ -8,8 +8,9 @@ public class Gas : MonoBehaviour
     [SerializeField] Canvas canvas;
     [SerializeField] float speedModifier;
     [SerializeField] float time;
+
+    PlayerController player;
     float timer;
-    //float realSpeed;
 
     private IEnumerator Countdown()
     {
@@ -20,7 +21,7 @@ public class Gas : MonoBehaviour
             if (timer < 0)
             {
                 //Esplosione
-                Debug.Log("Morto");
+                player.SetExplosion();
                 ResetCountdown();
             }
             yield return null;
@@ -35,8 +36,9 @@ public class Gas : MonoBehaviour
 
     private void ResetCountdown()
     {
-        timer = 0;
         StopCoroutine(Countdown());
+        timer = 0;
+        player = null;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,6 +47,7 @@ public class Gas : MonoBehaviour
         if (playerController != null)
         {
             playerController.SetMovementModifier(speedModifier);
+            player = playerController;
             StartCountdown();
         }
     }

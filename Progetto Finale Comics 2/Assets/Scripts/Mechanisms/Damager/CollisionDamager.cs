@@ -6,10 +6,10 @@ public class CollisionDamager : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        ExplosionBehaviour playerBehaviour = collision.gameObject.GetComponent<ExplosionBehaviour>();
-        if (playerBehaviour != null)
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (player != null)
         {
-            playerBehaviour.Explosion();
+            player.SetExplosion();
         }
     }
 }

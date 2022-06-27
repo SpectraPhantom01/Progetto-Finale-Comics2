@@ -5,11 +5,11 @@ using UnityEngine;
 public class TriggerDamager : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
-    {       
-        ExplosionBehaviour playerBehaviour = collision.gameObject.GetComponent<ExplosionBehaviour>();
-        if (playerBehaviour != null)
+    {
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (player != null)
         {
-            playerBehaviour.Explosion();
+            player.SetExplosion();
         }
     }
 }

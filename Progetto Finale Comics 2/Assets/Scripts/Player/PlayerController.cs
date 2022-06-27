@@ -81,6 +81,9 @@ public class PlayerController : MonoBehaviour
         //    case PlayerState.Normal:
                 CheckGround();
                 Movement();
+
+                ExplosionReduction(); /*--> Lerp in aria durante l'esplosione*/       
+
                 SetGravity();
                 AnimationSet();
         //        break;
@@ -96,6 +99,11 @@ public class PlayerController : MonoBehaviour
         //}
     }
 
+    private void ExplosionReduction()
+    {
+        
+    }
+
     private void AnimationSet()
     {
         if (rb.velocity.x < 0)
@@ -107,7 +115,11 @@ public class PlayerController : MonoBehaviour
             flipDirection.flipX = false;
         }
         animator.SetFloat("X Velocity", Math.Abs(rb.velocity.x));
-        animator.SetFloat("Y Velocity", rb.velocity.y);
+
+        float yClamped = Mathf.Clamp(rb.velocity.y, -1, 1);
+        
+        animator.SetFloat("Y Velocity", (yClamped + 1) / 2);
+        animator.SetBool("isGrounded", isGrounded);
     }
 
 
@@ -193,8 +205,7 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(checkGround.position, groundCheckRadius, groundLayer);
         if (isGrounded)
         {
-            groundedRememberTimer = groundedRememberTime;
-            //animator.SetBool("isGrounded", true);
+            groundedRememberTimer = groundedRememberTime;          
         }
     }
 
@@ -206,18 +217,14 @@ public class PlayerController : MonoBehaviour
     private void PlayerExplosion(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         animator.SetTrigger("Explosion");
-        //state = PlayerState.Exposion;
     }
 
-    public void SetExplosion() //Al posto di EndExplosionEvent
+    public void SetExplosion() 
     {
-        if (!isGrounded)
-            rb.bodyType = RigidbodyType2D.Static;
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
 
         GameObject explosion = Instantiate(prefabExplosion, (Vector2)transform.position + new Vector2(0, offsetExplosion), transform.rotation);
-        explosion.GetComponent<ExplosionBehaviour>().InitializeExplosion(offsetExplosion, radius, distance, fade);
-
-        GetComponentInChildren<SpriteRenderer>().enabled = false;      
+        explosion.GetComponent<ExplosionBehaviour>().InitializeExplosion(offsetExplosion, radius, distance, fade);     
     }
 
     public void SetMovementModifier(float modifier)
@@ -234,8 +241,6 @@ public class PlayerController : MonoBehaviour
         playerInput.Player.Jump.canceled += AbortJump;
         playerInput.Player.Explosion.performed += PlayerExplosion;
 
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        GetComponent<Collider2D>().enabled = true;
         GetComponentInChildren<SpriteRenderer>().enabled = true;
         //state = PlayerState.Normal;
     }
@@ -243,9 +248,6 @@ public class PlayerController : MonoBehaviour
     public void OnDisable()
     {
         playerInput.Player.Disable();
-        if(isGrounded)
-            rb.bodyType = RigidbodyType2D.Static;
-        GetComponent<Collider2D>().enabled = false;
     }
 
     private void OnDrawGizmos()

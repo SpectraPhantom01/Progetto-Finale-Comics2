@@ -8,24 +8,28 @@ public class Alarm : MonoBehaviour
     [Header("Alarm Settings")]
     [SerializeField] float activeTime;
     public UnityEvent activation;
+    bool isActive = false;
     float timer;
     //public UnityEvent deactivation;
 
     public void AlarmActivation()
     {
-        activation.Invoke();
-
-        timer = activeTime;
-        StartCoroutine(Countdown());
+        if (!isActive)
+        {
+            isActive = true;
+            activation.Invoke();
+            timer = activeTime;
+            StartCoroutine(Countdown());
+        }
     }
 
-    public void AlarmDeactivation()
+    private void AlarmDeactivation()
     {
         //deactivation.Invoke();
         activation.Invoke();
-
         timer = 0;
         StopCoroutine(Countdown());
+        isActive = false;
     }
 
     private IEnumerator Countdown()

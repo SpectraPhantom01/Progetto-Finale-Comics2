@@ -12,6 +12,8 @@ public class Traslator : MonoBehaviour
     [SerializeField] float stasisTime = 1;
     [SerializeField] Transform[] points;
     [SerializeField] TraslatorType traslatorType;
+    [SerializeField] int startingIndex;
+    int index;
 
     //[SerializeField] Transform start;
     //[SerializeField] Transform end;
@@ -19,7 +21,7 @@ public class Traslator : MonoBehaviour
 
     [HideInInspector] public bool isTeleporting;
     public bool active = true;
-    int index;
+    
     int i = 1;
 
     //Vector2 deltaMovement;
@@ -28,7 +30,8 @@ public class Traslator : MonoBehaviour
 
     private void Start()
     {
-        transform.position = points[0].position;
+        ResetPlatform();
+        //GameManager.instance.onRespawn += ResetPlatform;
     }
 
     private void FixedUpdate()
@@ -65,6 +68,13 @@ public class Traslator : MonoBehaviour
 
     }
 
+    private void ResetPlatform()
+    {
+        index = startingIndex;
+        i = 1;
+        transform.position = points[index].position;
+    }
+
     private void CheckBounds()
     {
         if (index == points.Length - 1)
@@ -92,7 +102,6 @@ public class Traslator : MonoBehaviour
         index = 0;
         transform.position = points[0].position;
         isTeleporting = false;
-        active = true;
     }
 
     public void PlatformState()
@@ -100,12 +109,11 @@ public class Traslator : MonoBehaviour
         if (!active)
         {
             active = true;
-            //animator.SetBool("State", active);
         }
         else
         {
+            ResetPlatform();
             active = false;
-            //animator.SetBool("State", active);
         }
     }
 
