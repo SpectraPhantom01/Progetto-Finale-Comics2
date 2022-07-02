@@ -477,30 +477,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1679394038, guid: 296f96998158afd4fa08d6833449d23f, type: 3}
-      propertyPath: music
-      value: Dark
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409785850523115932, guid: 296f96998158afd4fa08d6833449d23f, type: 3}
-      propertyPath: sounds.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409785850523115932, guid: 296f96998158afd4fa08d6833449d23f, type: 3}
-      propertyPath: sounds.Array.data[6].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 315a4f40066184e4093fcd566dd992f3, type: 3}
-    - target: {fileID: 1409785850523115932, guid: 296f96998158afd4fa08d6833449d23f, type: 3}
-      propertyPath: sounds.Array.data[6].name
-      value: Bip
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409785850523115932, guid: 296f96998158afd4fa08d6833449d23f, type: 3}
-      propertyPath: sounds.Array.data[6].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409785850523115932, guid: 296f96998158afd4fa08d6833449d23f, type: 3}
-      propertyPath: sounds.Array.data[6].volume
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 1409785850523115933, guid: 296f96998158afd4fa08d6833449d23f, type: 3}
       propertyPath: m_Name
       value: AudioManager
