@@ -2,31 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum LaserType { Normal, Repeater }
-
 public class Laser : MonoBehaviour
 {
     [Header("Ray Settings")]
     [SerializeField] Transform origin;
     [SerializeField] float distance = 10;
 
-    [Header("Timer Settings")]
-    [SerializeField] float delayTimer;
-    [SerializeField] float activeTimer;
-    [SerializeField] float inactiveTimer;
-
-    [Header("Laser Type Settings")]
-    [SerializeField] LaserType laserType;
+    [Header("Time Settings")]
+    [SerializeField] float delayTime;
+    [Tooltip("0 sempre attivo, Valore >= 0"), Min(0)]
+    [SerializeField] float activeTime;
+    [Tooltip("Valore >= 0, usato solo se Active Time è > 0"), Min(0)]
+    [SerializeField] float inactiveTime;
 
     LineRenderer lineRenderer;
+    Coroutine laserRoutine;
+
+    public bool startActive;
+    bool acceso;
     bool active;
-    float timer;
 
     private void Awake()
     {
-        timer = delayTimer;
-        lineRenderer = GetComponent<LineRenderer>(); 
-        StartCoroutine(DelayCountdown());
+        lineRenderer = GetComponent<LineRenderer>();
+    
+        if (startActive)
+            LaserState();
     }
 
     private void Update()
@@ -44,6 +45,13 @@ public class Laser : MonoBehaviour
         if (hit)
         {
             DrawRay(origin.position, hit.point);
+
+            //Attivazione particellare se non attivi
+            //Controllo il punto d'impatto
+            //Se diverso da punto d'impatto --> spostati a punto di impatto
+
+            CheckPlayer(hit);
+
         }
         else
         {
@@ -52,101 +60,65 @@ public class Laser : MonoBehaviour
         }
     }
 
-    private IEnumerator DelayCountdown()
+    private static void CheckPlayer(RaycastHit2D hit)
     {
-        while (timer > 0)
+        PlayerController player = hit.transform.gameObject.GetComponent<PlayerController>();
+        if (player != null && !player.isDead)
         {
-            timer -= Time.deltaTime;
-
-            if (timer < 0)
-            {
-                StopCoroutine(DelayCountdown());
-                LaserState();
-
-                if (laserType == LaserType.Repeater)
-                {
-                    timer = activeTimer;
-                    //StartCoroutine(ActiveCountdown());
-                    StartCoroutine(Test());
-                }               
-            }
-            yield return null;
+            player.OnDisable();
+            player.SetExplosion();
         }
     }
 
-    private void LaserState()
+    private IEnumerator LaserRoutine()
     {
-        if (!active)
+        //Attivazione con delay
+        //Aggiungere particellare
+        yield return new WaitForSeconds(delayTime);
+        
+        while (acceso)
         {
-            active = true;
-            lineRenderer.enabled = true;
+            //Attivo
+            if (!active)
+                SetLaser(true);
+
+            //Delay
+            yield return new WaitForSeconds(activeTime);
+
+            if(activeTime > 0)
+            {
+                //Disattivo
+                SetLaser(false);
+                //Delay
+                yield return new WaitForSeconds(inactiveTime);
+            }           
+        }
+    }
+
+    private void SetLaser(bool state)
+    {
+        active = state;
+        lineRenderer.enabled = state;
+    }
+
+    public void LaserState()
+    {
+        acceso = !acceso;
+        if (acceso)
+        {
+            if(laserRoutine == null)
+                laserRoutine = StartCoroutine(LaserRoutine());
         }
         else
         {
-            active = false;
-            lineRenderer.enabled = false;
-        }       
-    }
-
-    private IEnumerator Test()
-    {
-        while(timer > 0)
-        {
-            timer -= Time.deltaTime;
-
-            if(timer < 0)
+            if (laserRoutine != null)
             {
-                timer = activeTimer;
-                LaserState();
-
-                //StopCoroutine(Test());
-                yield return null;
-                //StartCoroutine(Test());
-            }     
-        } 
+                StopCoroutine(laserRoutine);
+                laserRoutine = null;
+                SetLaser(false);
+            }              
+        }
     }
-
-    //private IEnumerator InactiveCountdown()
-    //{
-    //    while (timer > 0)
-    //    {
-    //        timer -= Time.deltaTime;
-
-    //        if (timer < 0)
-    //        {
-    //            StopCoroutine(InactiveCountdown());
-
-    //            timer = activeTimer;
-    //            active = true;
-    //            lineRenderer.enabled = true;
-
-    //            StartCoroutine(ActiveCountdown());
-    //        }
-
-    //        yield return null;
-    //    }
-    //}
-
-    //private IEnumerator ActiveCountdown()
-    //{
-    //    while (timer > 0)
-    //    {
-    //        timer -= Time.deltaTime;
-
-    //        if (timer < 0)
-    //        {
-    //            StopCoroutine(ActiveCountdown());
-
-    //            timer = inactiveTimer;
-    //            active = false;
-    //            lineRenderer.enabled = false;
-
-    //            StartCoroutine(InactiveCountdown());
-    //        }
-
-    //        yield return null;
-    //    }
-    //}
 
     private void DrawRay(Vector2 start, Vector2 end)
     {

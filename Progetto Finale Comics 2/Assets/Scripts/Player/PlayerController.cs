@@ -50,8 +50,11 @@ public class PlayerController : MonoBehaviour
     PlayerInput playerInput;
     Vector2 direction;
     Rigidbody2D rb;
+    Collider2D playerCollider;
     float horizontalMove;
     bool isGrounded;
+    bool prepExplosion;
+    [HideInInspector] public bool isDead;
     //PlayerState state;
 
     //Rigidbody2D rbPlatform;
@@ -67,7 +70,9 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         playerInput = new PlayerInput();
+
         rb = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<Collider2D>();
         gravityScale = rb.gravityScale;
     }
 
@@ -82,7 +87,7 @@ public class PlayerController : MonoBehaviour
                 CheckGround();
                 Movement();
 
-                ExplosionReduction(); /*--> Lerp in aria durante l'esplosione*/       
+                //ExplosionReduction(); /*--> Lerp in aria durante l'esplosione*/       
 
                 SetGravity();
                 AnimationSet();
@@ -97,11 +102,6 @@ public class PlayerController : MonoBehaviour
         //{
         //    rb.velocity += rbPlatform.GetComponent<Traslator>().deltaMovement * 50;
         //}
-    }
-
-    private void ExplosionReduction()
-    {
-        
     }
 
     private void AnimationSet()
@@ -121,17 +121,6 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Y Velocity", (yClamped + 1) / 2);
         animator.SetBool("isGrounded", isGrounded);
     }
-
-
-    //public void PreparationEvent() //Da togliere?
-    //{
-    //    preparation.Invoke();
-    //}
-
-    //public void EndPreparationEvent() //Da togliere?
-    //{
-    //    endPreparation.Invoke();
-    //}
 
     void FixedUpdate()
     {
@@ -175,7 +164,18 @@ public class PlayerController : MonoBehaviour
             horizontalMove = Mathf.Clamp(horizontalMove, -movementSpeed, movementSpeed);
         }
 
-        rb.velocity = new Vector2(horizontalMove * movementModifier, rb.velocity.y);
+        //rb.velocity = new Vector2(horizontalMove * movementModifier, rb.velocity.y);
+        rb.velocity = new Vector2(horizontalMove * movementModifier, ExplosionReduction());
+
+    }
+
+    private float ExplosionReduction()
+    {
+        if (prepExplosion)
+        {
+            return Mathf.Lerp(rb.velocity.y, 0, Time.deltaTime * 25);
+        }
+        return rb.velocity.y;
     }
 
     public void Jump(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -216,15 +216,19 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerExplosion(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
+        prepExplosion = true;
         animator.SetTrigger("Explosion");
     }
 
     public void SetExplosion() 
     {
+        isDead = true;
+
         GetComponentInChildren<SpriteRenderer>().enabled = false;
 
         GameObject explosion = Instantiate(prefabExplosion, (Vector2)transform.position + new Vector2(0, offsetExplosion), transform.rotation);
-        explosion.GetComponent<ExplosionBehaviour>().InitializeExplosion(offsetExplosion, radius, distance, fade);     
+        explosion.GetComponent<ExplosionBehaviour>().InitializeExplosion(offsetExplosion, radius, distance, fade);
+        prepExplosion = false;
     }
 
     public void SetMovementModifier(float modifier)
@@ -242,12 +246,20 @@ public class PlayerController : MonoBehaviour
         playerInput.Player.Explosion.performed += PlayerExplosion;
 
         GetComponentInChildren<SpriteRenderer>().enabled = true;
+        isDead = false;
+
+        //rb.bodyType = RigidbodyType2D.Dynamic;
+        //playerCollider.enabled = true;
+
         //state = PlayerState.Normal;
     }
 
     public void OnDisable()
     {
         playerInput.Player.Disable();
+
+        //rb.bodyType = RigidbodyType2D.Static;
+        //playerCollider.enabled = false;
     }
 
     private void OnDrawGizmos()
