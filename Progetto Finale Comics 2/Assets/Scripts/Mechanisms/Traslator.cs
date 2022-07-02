@@ -40,16 +40,22 @@ public class Traslator : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, points[index].position) < 0.02f)
             {
-                index += i;
+                bool result = false;
+                //index = Mathf.Clamp(index, 0, points.Length - 1);
+
                 switch (traslatorType)
                 {
                     case TraslatorType.platform:
-                        CheckTeleport();
+                        result = CheckTeleport();
                         break;
                     case TraslatorType.standard:
-                        CheckBounds();
+                        result = CheckBounds();
                         break;
                 }
+
+                if (!result)
+                    index += i;
+
             }
             else
             {
@@ -75,26 +81,31 @@ public class Traslator : MonoBehaviour
         transform.position = points[index].position;
     }
 
-    private void CheckBounds()
+    private bool CheckBounds()
     {
         if (index == points.Length - 1)
         {
             i = -1;
+            return true;
         }
         else if (index == 0)
         {
             i = 1;
+            return true;
         }
+        return false;
     }
 
-    private void CheckTeleport()
+    private bool CheckTeleport()
     {
-        if (index == points.Length)
+        if (index == points.Length - 1)
         {
             active = false;
             isTeleporting = true;
             Invoke("TeleportPlatform", stasisTime);
+            return true;
         }
+        return false;
     }
 
     private void TeleportPlatform()
