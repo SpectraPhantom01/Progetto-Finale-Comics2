@@ -2821,6 +2821,7 @@ MonoBehaviour:
   - {fileID: 8582948519541303598}
   - {fileID: 8582948520267776287}
   traslatorType: 0
+  startingIndex: 0
   isTeleporting: 0
   active: 1
 --- !u!61 &8582948519752638024
