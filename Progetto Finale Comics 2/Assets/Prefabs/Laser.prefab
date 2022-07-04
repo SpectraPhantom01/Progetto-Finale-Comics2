@@ -82,8 +82,8 @@ MonoBehaviour:
   origin: {fileID: 4009545725841362749}
   distance: 10
   delayTime: 2
-  activeTime: 1
-  inactiveTime: 2
+  activeTime: 0
+  inactiveTime: 0
   startActive: 1
 --- !u!120 &4009545726048292228
 LineRenderer:

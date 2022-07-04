@@ -9,6 +9,7 @@ public class CollisionDamager : MonoBehaviour
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
         if (player != null)
         {
+            player.OnDisable();
             player.SetExplosion();
         }
     }
