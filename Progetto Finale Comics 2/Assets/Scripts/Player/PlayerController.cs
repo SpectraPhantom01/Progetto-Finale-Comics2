@@ -223,6 +223,7 @@ public class PlayerController : MonoBehaviour
     public void SetExplosion() 
     {
         isDead = true;
+        rb.bodyType = RigidbodyType2D.Static;
 
         GetComponentInChildren<SpriteRenderer>().enabled = false;
 
@@ -248,7 +249,7 @@ public class PlayerController : MonoBehaviour
         GetComponentInChildren<SpriteRenderer>().enabled = true;
         isDead = false;
 
-        //rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.bodyType = RigidbodyType2D.Dynamic;
         //playerCollider.enabled = true;
 
         //state = PlayerState.Normal;
