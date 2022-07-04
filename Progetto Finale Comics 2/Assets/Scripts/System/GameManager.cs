@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     [Header("Game Manager Settings")]
-    [SerializeField] Transform currentSpawn;
+    public Transform currentSpawn;
     public UnityAction interactableListener;
     public UnityAction onRespawn;
     public static GameManager instance;

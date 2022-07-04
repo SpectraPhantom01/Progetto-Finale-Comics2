@@ -40,7 +40,7 @@ public class Laser : MonoBehaviour
 
     private void ShootLaser()
     {
-        RaycastHit2D hit = Physics2D.Raycast(origin.position, Vector2.down);
+        RaycastHit2D hit = Physics2D.Raycast(origin.position, -origin.up);
 
         if (hit)
         {

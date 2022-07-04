@@ -8,12 +8,12 @@ public class Switch : Interactable
     public bool oneTime;
     bool active;
     public UnityEvent LeverEvent;
-    //Animator animator;
+    Animator animator;
     GameManager gameManager;
 
     private void Awake()
     {
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         gameManager = GameObject.Find("GameManager").gameObject.GetComponent<GameManager>();
     }
 
@@ -22,12 +22,12 @@ public class Switch : Interactable
         if (!active)
         {
             active = true;
-            //animator.SetBool("State", active);
+            animator.SetBool("State", active);
         }
         else if (!oneTime && active)
         {
             active = false;
-            //animator.SetBool("State", active);
+            animator.SetBool("State", active);
         }
     }
 
