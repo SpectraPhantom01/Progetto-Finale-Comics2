@@ -141,7 +141,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 441cbc4a45abd5e4c837440f9b022492, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 46a9308a4ba81fa46a37fc7bb93866c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,18 +165,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0059791803, y: 0.1335375}
+  m_Offset: {x: 0.0004811287, y: 0.10709298}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 1}
+    oldSize: {x: 1.3334961, y: 1.0001221}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9925623, y: 0.24660915}
+  m_Size: {x: 1.292453, y: 0.19372007}
   m_EdgeRadius: 0
 --- !u!50 &978857133444763338
 Rigidbody2D:
@@ -212,18 +212,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0053616166, y: 0.25600392}
+  m_Offset: {x: -0.00039708614, y: 0.20259784}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 1}
+    oldSize: {x: 1.3334961, y: 1.0001221}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9913272, y: 0.022240877}
+  m_Size: {x: 1.2887475, y: 0.025393635}
   m_EdgeRadius: 0
 --- !u!114 &978857133444763342
 MonoBehaviour:
@@ -271,18 +271,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0030687451, y: -0.026539981}
+  m_Offset: {x: 0.004609853, y: -0.046695977}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 1}
+    oldSize: {x: 1.3334961, y: 1.0001221}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.649084, y: 0.23413455}
+  m_Size: {x: 0.54158527, y: 0.27444658}
   m_EdgeRadius: 0
 --- !u!1 &978857133573518241
 GameObject:
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 978857133573518246}
   - component: {fileID: 1134822451811226134}
   m_Layer: 0
-  m_Name: 3.PlatformObject
+  m_Name: MediumPlatformObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,7 +309,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978857133573518241}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.19, y: 1.47, z: 0}
+  m_LocalPosition: {x: 5, y: 1.5, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
