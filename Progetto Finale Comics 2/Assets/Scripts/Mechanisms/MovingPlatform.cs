@@ -24,6 +24,9 @@ public class MovingPlatform : MonoBehaviour
         {
             collision.gameObject.transform.SetParent(gameObject.transform, true);
             player = collision.gameObject;
+
+            if(!traslator.active)
+                traslator.active = true;
         }
     }
 
