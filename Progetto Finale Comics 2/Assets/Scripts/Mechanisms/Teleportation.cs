@@ -44,6 +44,7 @@ public class Teleportation : MonoBehaviour
     {
         AudioManager.instance.Play("Teletrasporto");
     }
+
     private void TeleportSoundStop()
     {
         AudioManager.instance.Stop("Teletrasporto");
