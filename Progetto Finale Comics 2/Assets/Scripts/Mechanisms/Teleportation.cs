@@ -10,10 +10,6 @@ public class Teleportation : MonoBehaviour
     [SerializeField] Transform teleportPoint;
 
     // Start is called before the first frame update
-    private void Start()
-    {
-        teleportPoint = this.gameObject.transform.parent.transform.GetChild(1); //risale al padre per poi prendere il transform del secondo figlio
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
