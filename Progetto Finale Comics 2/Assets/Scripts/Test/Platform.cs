@@ -80,7 +80,9 @@ public class Platform : MonoBehaviour
         active = false;
         index = startingIndex;
         i = 1;
+
         transform.position = points[index].position;
+        transform.rotation = Quaternion.identity;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
