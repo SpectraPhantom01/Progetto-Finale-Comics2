@@ -246,6 +246,8 @@ public class PlayerController : MonoBehaviour
         playerInput.Player.Jump.canceled += AbortJump;
         playerInput.Player.Explosion.performed += PlayerExplosion;
 
+        playerInput.Player.Pause.started += Pause;
+
         GetComponentInChildren<SpriteRenderer>().enabled = true;
         isDead = false;
 
@@ -253,6 +255,11 @@ public class PlayerController : MonoBehaviour
         //playerCollider.enabled = true;
 
         //state = PlayerState.Normal;
+    }
+
+    private void Pause(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        PauseMenu.instance.CheckPauseMenu();
     }
 
     public void OnDisable()

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4009545725841362748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: -0.03, y: -0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 4009545726048292219}
   - component: {fileID: 4009545726048292228}
   - component: {fileID: 4009545726048292229}
+  - component: {fileID: 417696157}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -80,11 +81,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origin: {fileID: 4009545725841362749}
-  distance: 10
+  distance: 100
   delayTime: 2
-  activeTime: 0
+  activeTime: 1
   inactiveTime: 0
-  startActive: 1
+  startActive: 0
 --- !u!120 &4009545726048292228
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -137,7 +138,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.25766945
+        value: 0.06649208
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -194,7 +195,7 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -1}
@@ -210,6 +211,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &417696157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4009545726048292217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1848722f7f21684cb949e34e1b1c027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridSize: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!1 &4009545726613193309
 GameObject:
   m_ObjectHideFlags: 0
