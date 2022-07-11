@@ -133,3 +133,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Alarm
+    clip: {fileID: 8300000, guid: 587ae0df572324e4aaf5608efbc8ef77, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

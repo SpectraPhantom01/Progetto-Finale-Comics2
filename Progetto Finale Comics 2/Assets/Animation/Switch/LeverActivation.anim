@@ -21,14 +21,14 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: 19170bd948755e34aa2b0b12388bc393, type: 3}
-    - time: 0.11666667
+    - time: 0.083333336
       value: {fileID: 21300000, guid: a9e2dc93fb2f60f429d30c71fb85e988, type: 3}
-    - time: 0.21666667
+    - time: 0.18333334
       value: {fileID: 21300000, guid: f15b02d88e70c9a4184f96a646f43747, type: 3}
-    - time: 0.33333334
+    - time: 0.25
       value: {fileID: 21300000, guid: 0b50e36a4130aa74ab98d7b8d509ebeb, type: 3}
     attribute: m_Sprite
-    path: Grafica
+    path: Graphics
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -39,7 +39,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3545651044
+      path: 968875534
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -55,7 +55,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35000002
+    m_StopTime: 0.26666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
