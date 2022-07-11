@@ -18,6 +18,7 @@ public class TranslatorMovement : MonoBehaviour
     private void Awake()
     {
         ResetPosition();
+        GameManager.instance.onRespawn += ResetPosition;
 
         if (sound) 
             sound.Play();
@@ -66,12 +67,12 @@ public class TranslatorMovement : MonoBehaviour
         else
         {
             ResetPosition();
-            active = false;
         }
     }
 
     private void ResetPosition()
     {
+        active = false;
         index = startingIndex;
         i = 1;
         transform.position = points[index].position;
