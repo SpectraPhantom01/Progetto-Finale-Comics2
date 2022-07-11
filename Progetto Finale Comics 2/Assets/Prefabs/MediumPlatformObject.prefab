@@ -89,9 +89,8 @@ GameObject:
   - component: {fileID: 978857133444763339}
   - component: {fileID: 978857133444763338}
   - component: {fileID: 978857133444763337}
-  - component: {fileID: 978857133444763342}
-  - component: {fileID: 978857133444763332}
   - component: {fileID: 4791186220925819898}
+  - component: {fileID: 1557346447193302277}
   m_Layer: 3
   m_Name: Platform
   m_TagString: Untagged
@@ -239,39 +238,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2887475, y: 0.025393635}
   m_EdgeRadius: 0
---- !u!114 &978857133444763342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978857133444763334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abe3e12fa3b4566418a8eea6c360a34f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &978857133444763332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978857133444763334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65d78297180985a45a238936a755ea6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 5
-  stasisTime: 1
-  points:
-  - {fileID: 978857133250345389}
-  - {fileID: 978857132919198108}
-  traslatorType: 0
-  startingIndex: 0
-  isTeleporting: 0
-  active: 1
 --- !u!61 &4791186220925819898
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -298,6 +264,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.54158527, y: 0.27444658}
   m_EdgeRadius: 0
+--- !u!114 &1557346447193302277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978857133444763334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fce5ca206b63f3244abe7c18b07fc7a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0
+  stasisTime: 1
+  points:
+  - {fileID: 978857133250345389}
+  - {fileID: 978857132919198108}
+  startingIndex: 0
+  active: 0
+  onTouch: 0
 --- !u!1 &978857133573518241
 GameObject:
   m_ObjectHideFlags: 0
