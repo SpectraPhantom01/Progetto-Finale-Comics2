@@ -818,7 +818,7 @@ GameObject:
   - component: {fileID: 202485855}
   - component: {fileID: 202485854}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: PauseTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -845,7 +845,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202485853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6377969, y: -0.510676, z: -0.019064492}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -922,7 +922,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1057,17 +1057,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830197366}
   m_CullTransparentMesh: 1
---- !u!114 &864903551 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4009545726048292219, guid: 2a11c0f225c107049a1e652cb7be010e, type: 3}
-  m_PrefabInstance: {fileID: 4009545725720800260}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 035dd7510d17c3943b3555aa4af28ab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1008285181 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1943630758652616411, guid: 832c08cd867bd634d9cf045b356153e7, type: 3}
@@ -1221,6 +1210,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89545ae6d0bc0a0459967c35a72bfecf, type: 3}
+--- !u!114 &1609338817 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4466045510237231888, guid: 792cdda6751a42d4481dacddd5385d58, type: 3}
+  m_PrefabInstance: {fileID: 4466045509293471628}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db462cb62132ee49a22ddf78e516490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1632596734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1788,14 +1788,14 @@ PrefabInstance:
     - target: {fileID: 3759244638663180114, guid: 5b77dbfd4e70f884aa15d1503654e3be, type: 3}
       propertyPath: LeverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 864903551}
+      objectReference: {fileID: 1609338817}
     - target: {fileID: 3759244638663180114, guid: 5b77dbfd4e70f884aa15d1503654e3be, type: 3}
       propertyPath: LeverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LaserState
+      value: AlarmActivation
       objectReference: {fileID: 0}
     - target: {fileID: 3759244638663180114, guid: 5b77dbfd4e70f884aa15d1503654e3be, type: 3}
       propertyPath: LeverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Laser, Assembly-CSharp
+      value: Alarm, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3759244638663180114, guid: 5b77dbfd4e70f884aa15d1503654e3be, type: 3}
       propertyPath: LeverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1994,7 +1994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5059698468538585899, guid: 49282fdf447cede4db5c4a269d1d8ccb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5059698468538585903, guid: 49282fdf447cede4db5c4a269d1d8ccb, type: 3}
