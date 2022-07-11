@@ -22,7 +22,7 @@ public class Platform : MonoBehaviour
         ResetPlatform();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (active)
         {
