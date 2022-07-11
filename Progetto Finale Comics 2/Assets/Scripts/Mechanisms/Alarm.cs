@@ -8,9 +8,15 @@ public class Alarm : MonoBehaviour
     [Header("Alarm Settings")]
     [SerializeField] float activeTime;
     public UnityEvent activation;
+    Animator animator;
     bool isActive = false;
     float timer;
     //public UnityEvent deactivation;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     public void AlarmActivation()
     {
@@ -19,6 +25,10 @@ public class Alarm : MonoBehaviour
             isActive = true;
             activation.Invoke();
             timer = activeTime;
+
+            animator.SetBool("State", isActive);
+            AudioManager.instance.Play("Alarm");
+
             StartCoroutine(Countdown());
         }
     }
@@ -26,10 +36,14 @@ public class Alarm : MonoBehaviour
     private void AlarmDeactivation()
     {
         //deactivation.Invoke();
+        isActive = false;
         activation.Invoke();
         timer = 0;
-        StopCoroutine(Countdown());
-        isActive = false;
+
+        animator.SetBool("State", isActive);
+        AudioManager.instance.Stop("Alarm");
+
+        StopCoroutine(Countdown());     
     }
 
     private IEnumerator Countdown()
