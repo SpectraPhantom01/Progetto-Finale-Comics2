@@ -20,6 +20,7 @@ public class Platform : MonoBehaviour
     private void Awake()
     {
         ResetPlatform();
+        GameManager.instance.onRespawn += ResetPlatform;
     }
 
     private void FixedUpdate()
@@ -70,13 +71,13 @@ public class Platform : MonoBehaviour
         }
         else
         {
-            ResetPlatform();
-            active = false;
+            ResetPlatform();       
         }
     }
 
     private void ResetPlatform()
     {
+        active = false;
         index = startingIndex;
         i = 1;
         transform.position = points[index].position;

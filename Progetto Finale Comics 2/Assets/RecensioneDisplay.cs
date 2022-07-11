@@ -15,6 +15,7 @@ public class RecensioneDisplay : MonoBehaviour
 
     //public Image sfondo;
     public Image valutazione;
+
     // Start is called before the first frame update
     void Start()
     {
