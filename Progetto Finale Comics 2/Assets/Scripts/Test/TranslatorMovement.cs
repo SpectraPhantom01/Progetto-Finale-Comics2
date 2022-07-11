@@ -75,7 +75,9 @@ public class TranslatorMovement : MonoBehaviour
         active = false;
         index = startingIndex;
         i = 1;
+
         transform.position = points[index].position;
+        transform.rotation = Quaternion.identity;
     }
 
 
