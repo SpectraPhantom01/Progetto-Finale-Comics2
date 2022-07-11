@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88f489e8f5260fb4b878323e9ef30b53, type: 3}
-  m_Name: Consigliato
+  m_Name: Shalla1
   m_EditorClassIdentifier: 
-  oreGiocate: 0.5 ore in totale
-  dataPubblicazione: 11 Settembre 2020
-  descrizione: "Il gioco e geniale e chiuncue dice il contrario non capisce nulla.
-    lo comprato subito all'uscita ed \xE8 esattamente cio che volevo"
+  oreGiocate: 7.5 ore in totale
+  dataPubblicazione: 'Pubblicazione: 5 Ottobre 2020'
+  descrizione: 'Bel gioco complimenti '
   valutazioneText: Consigliato
-  sfondo: {fileID: 21300000, guid: 36b8043287f21bf42b9bdbd57f1c2745, type: 3}
   valutazione: {fileID: 21300000, guid: 7ffc7137eea51d3418d27dc47ea8388b, type: 3}

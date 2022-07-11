@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88f489e8f5260fb4b878323e9ef30b53, type: 3}
-  m_Name: 2Sconsigliato
+  m_Name: 3Sconsigliatoindignato
   m_EditorClassIdentifier: 
-  oreGiocate: 6.3 ore in totale
-  dataPubblicazione: 'Pubblicazione: 1 Ottobre 2020'
-  descrizione: Il gioco potrebbe anche essere carino, il platforming funziona e gli
-    ostacoli interessanti. Il problema sono tutte quelle parti splatter senza senso,
-    sangue ovunque e direi anche di cattivo gusto. Peccato, poteva esser un buon
-    gioco.
+  oreGiocate: 2.5 ore in totale
+  dataPubblicazione: 'Pubblicazione: 25 Settembre 2020'
+  descrizione: "\xC8 per prodotto come questo che hanno inventato la pirateria non
+    vi meritare nulla fate schifo come i giochi che fate"
   valutazioneText: Sconsigliato
-  sfondo: {fileID: 21300000, guid: 36b8043287f21bf42b9bdbd57f1c2745, type: 3}
   valutazione: {fileID: 21300000, guid: 3e6ab717771d22f4e9a02686818fed6d, type: 3}

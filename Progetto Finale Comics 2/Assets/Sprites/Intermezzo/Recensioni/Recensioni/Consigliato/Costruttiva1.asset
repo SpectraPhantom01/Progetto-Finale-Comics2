@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f489e8f5260fb4b878323e9ef30b53, type: 3}
+  m_Name: Costruttiva1
+  m_EditorClassIdentifier: 
+  oreGiocate: 6.3 ore in toale
+  dataPubblicazione: 'Pubblicazione: 15 Settembre 2020'
+  descrizione: "Il gioco deve rimanere un gioco non una causa politica. \xE8 gradevole
+    da vedere e da giocare, ma quando si passa alla tematica....questo gioco far\xE0
+    parlare di s\xE8, spero nel bene, ma ho paura che non sar\xE0 cos\xEC."
+  valutazioneText: Consigliato
+  valutazione: {fileID: 21300000, guid: 7ffc7137eea51d3418d27dc47ea8388b, type: 3}

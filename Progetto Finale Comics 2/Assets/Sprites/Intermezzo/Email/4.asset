@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb31801feae07b94a85438ae00e38b15, type: 3}
+  m_Name: 4
+  m_EditorClassIdentifier: 
+  titolo: Problema Urgente
+  mittente: < CambriaArt@gmail.com >
+  data: 4 Novembre 2020
+  oggetto: "Ma hai visto sta roba? sai bene quanto me che non riusciremo mai a farcela.
+    Io non sono per nulla convinto, per adesso ti sto dietro, ma sta pur certo che
+    io a Crunchare 12/14 ore al giorno non ci sto. Di questo passo per\xF2 stai attento
+    che finisce come il primo gioco che qualcuno abbandona a met\xE0 strada. Per
+    me gli dovresti dire che una cosa del genere non \xE8 fattibile neanche in uno
+    studio tripla A figurati noi che abbiamo 1 programmatore e mezzo e sono rimasto
+    solo io come artista, io ti ho avvistato e spero solo che non se ne escano con
+    altre idee del ca**o. Ci Sentiamo "
