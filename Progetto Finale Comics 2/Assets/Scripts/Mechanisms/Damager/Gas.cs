@@ -5,7 +5,6 @@ using UnityEngine;
 public class Gas : MonoBehaviour
 {
     [Header("Gas Settings")]
-    [SerializeField] Canvas canvas;
     [SerializeField] float speedModifier;
     [SerializeField] float time;
 
@@ -20,7 +19,6 @@ public class Gas : MonoBehaviour
 
             if (timer < 0)
             {
-                //Esplosione
                 player.SetExplosion();
                 ResetCountdown();
             }
