@@ -17,7 +17,7 @@ public class Platform : MonoBehaviour
 
     int i = 1;
 
-    private void Awake()
+    private void Start()
     {
         ResetPlatform();
         GameManager.instance.onRespawn += ResetPlatform;
@@ -71,16 +71,18 @@ public class Platform : MonoBehaviour
         }
         else
         {
+            active = false;
             ResetPlatform();       
         }
     }
 
     private void ResetPlatform()
-    {
-        active = false;
+    {       
         index = startingIndex;
         i = 1;
+
         transform.position = points[index].position;
+        transform.rotation = Quaternion.identity;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

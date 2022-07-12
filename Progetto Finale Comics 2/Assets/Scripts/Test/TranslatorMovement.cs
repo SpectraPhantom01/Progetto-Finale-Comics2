@@ -15,7 +15,7 @@ public class TranslatorMovement : MonoBehaviour
 
     int i = 1;
 
-    private void Awake()
+    private void Start()
     {
         ResetPosition();
         GameManager.instance.onRespawn += ResetPosition;
@@ -66,16 +66,18 @@ public class TranslatorMovement : MonoBehaviour
         }
         else
         {
+            active = false;
             ResetPosition();
         }
     }
 
     private void ResetPosition()
-    {
-        active = false;
+    {        
         index = startingIndex;
         i = 1;
+
         transform.position = points[index].position;
+        transform.rotation = Quaternion.identity;
     }
 
 
