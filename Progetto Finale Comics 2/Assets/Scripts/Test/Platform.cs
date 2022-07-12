@@ -71,13 +71,13 @@ public class Platform : MonoBehaviour
         }
         else
         {
+            active = false;
             ResetPlatform();       
         }
     }
 
     private void ResetPlatform()
-    {
-        active = false;
+    {       
         index = startingIndex;
         i = 1;
 

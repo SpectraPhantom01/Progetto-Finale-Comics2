@@ -66,13 +66,13 @@ public class TranslatorMovement : MonoBehaviour
         }
         else
         {
+            active = false;
             ResetPosition();
         }
     }
 
     private void ResetPosition()
-    {
-        //active = false;
+    {        
         index = startingIndex;
         i = 1;
 
