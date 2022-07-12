@@ -17,7 +17,7 @@ public class Platform : MonoBehaviour
 
     int i = 1;
 
-    private void Awake()
+    private void Start()
     {
         ResetPlatform();
         GameManager.instance.onRespawn += ResetPlatform;

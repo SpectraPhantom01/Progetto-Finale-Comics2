@@ -15,7 +15,7 @@ public class TranslatorMovement : MonoBehaviour
 
     int i = 1;
 
-    private void Awake()
+    private void Start()
     {
         ResetPosition();
         GameManager.instance.onRespawn += ResetPosition;
@@ -72,7 +72,7 @@ public class TranslatorMovement : MonoBehaviour
 
     private void ResetPosition()
     {
-        active = false;
+        //active = false;
         index = startingIndex;
         i = 1;
 
