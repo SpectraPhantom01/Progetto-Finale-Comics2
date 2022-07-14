@@ -22,4 +22,5 @@ public class Stretcha : MonoBehaviour
             //Destroy(gameObject);
         }
     }
+
 }

@@ -19,7 +19,7 @@ public class Platform : MonoBehaviour
 
     private void Start()
     {
-        ResetPlatform();
+        //ResetPlatform();
         GameManager.instance.onRespawn += ResetPlatform;
     }
 
@@ -77,7 +77,8 @@ public class Platform : MonoBehaviour
     }
 
     private void ResetPlatform()
-    {       
+    {
+        active = false;
         index = startingIndex;
         i = 1;
 
