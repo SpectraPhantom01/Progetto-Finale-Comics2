@@ -2818,7 +2818,7 @@ GameObject:
   - component: {fileID: 1996049563}
   - component: {fileID: 1996049562}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: CommentTriggerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
