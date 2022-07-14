@@ -223,8 +223,9 @@ public class PlayerController : MonoBehaviour
     public void SetExplosion() 
     {
         isDead = true;
-        rb.bodyType = RigidbodyType2D.Static;
         transform.parent = null;
+        rb.bodyType = RigidbodyType2D.Static;
+        
 
         GetComponentInChildren<SpriteRenderer>().enabled = false;
 

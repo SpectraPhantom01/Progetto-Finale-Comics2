@@ -12,7 +12,8 @@ public class CommentTrigger : MonoBehaviour
 
         if (player != null)
         {
-            ChatManager.instance.AddComment(comment);
+            Instantiate(comment.gameObject, ChatManager.instance.textContainerUI.transform);
+            //ChatManager.instance.AddComment(instantiatedComment);
         }
     }
 }

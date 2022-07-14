@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChatManager : MonoBehaviour
 {
-    [SerializeField] GameObject textContainerUI;
+    public GameObject textContainerUI;
     public static ChatManager instance;
 
     private void Awake()
@@ -17,9 +17,9 @@ public class ChatManager : MonoBehaviour
         instance = null;
     }
 
-    public void AddComment(Comment comment)
-    {
-        textContainerUI.transform.parent = comment.transform;
-    }
+    //public void AddComment(Comment comment)
+    //{
+    //    textContainerUI.transform.parent = comment.transform;
+    //}
 
 }

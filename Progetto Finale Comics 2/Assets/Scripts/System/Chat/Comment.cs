@@ -6,10 +6,11 @@ using UnityEngine;
 public class Comment : MonoBehaviour
 {
     [SerializeField] CommentSO commentSO;
-    [SerializeField] TextMeshProUGUI textMesh;
+    TextMeshProUGUI textMesh;
 
     private void Start()
     {
+        textMesh = GetComponent<TextMeshProUGUI>();
         textMesh.text = commentSO.comment;
     }
 }
