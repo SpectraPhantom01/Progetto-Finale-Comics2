@@ -224,6 +224,7 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
         rb.bodyType = RigidbodyType2D.Static;
+        transform.parent = null;
 
         GetComponentInChildren<SpriteRenderer>().enabled = false;
 
