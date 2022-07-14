@@ -19,6 +19,13 @@ public class DestroyonTouch : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer != LayerMask.NameToLayer("Player"))
+        {
+            if (gameObject.GetComponentInChildren<PlayerController>() != null)
+            {
+                gameObject.GetComponentInChildren<PlayerController>().gameObject.transform.parent = null;
+            }
             gameObject.SetActive(false);
+        }
+
     }
 }

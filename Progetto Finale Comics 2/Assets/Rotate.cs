@@ -12,8 +12,6 @@ public class Rotate : MonoBehaviour
 
     public bool active = true;
 
-    int i = 1;
-
     private void Start()
     {
         if (sound)
