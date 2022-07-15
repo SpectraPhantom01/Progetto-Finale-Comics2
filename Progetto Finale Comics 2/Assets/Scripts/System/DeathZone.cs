@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DeathZone : MonoBehaviour
 {
-    [Header("Death Zone Settings")]
+    //[Header("Death Zone Settings")]
     //[SerializeField] Checkpoint checkpoint;
-    [SerializeField] GameManager gameManager;
+    //[SerializeField] GameManager gameManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,7 +14,7 @@ public class DeathZone : MonoBehaviour
         if (player.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             //collision.transform.position = checkpoint.transform.position;
-            gameManager.Respawn(player.transform);
+            GameManager.instance.Respawn();
         }
     }
 
