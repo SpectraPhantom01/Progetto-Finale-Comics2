@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ChatManager : MonoBehaviour
 {
-    public GameObject textContainerUI;
+    [SerializeField] int maxComments = 17;
+    [SerializeField] GameObject textContainerUI;
     public static ChatManager instance;
 
     private void Awake()
@@ -17,9 +18,14 @@ public class ChatManager : MonoBehaviour
         instance = null;
     }
 
-    //public void AddComment(Comment comment)
-    //{
-    //    textContainerUI.transform.parent = comment.transform;
-    //}
+    public void AddComment(Comment comment)
+    {
+        comment.transform.SetParent(textContainerUI.transform, false);
+
+        if(textContainerUI.transform.childCount > maxComments)
+        {
+            Destroy(textContainerUI.transform.GetChild(0).gameObject);
+        }
+    }
 
 }

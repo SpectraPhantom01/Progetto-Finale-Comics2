@@ -45,7 +45,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float distance;
     //[SerializeField] UnityEvent preparation;
     //[SerializeField] UnityEvent endPreparation;
-    [SerializeField] UnityEvent fade;
 
     PlayerInput playerInput;
     Vector2 direction;
@@ -68,7 +67,7 @@ public class PlayerController : MonoBehaviour
     //float currentSpeed = 0;
 
     void Awake()
-    {
+    {     
         playerInput = new PlayerInput();
 
         rb = GetComponent<Rigidbody2D>();
@@ -76,32 +75,21 @@ public class PlayerController : MonoBehaviour
         gravityScale = rb.gravityScale;
     }
 
+    private void Start()
+    {
+        GameManager.instance.SetPlayer(this);
+        GameManager.instance.SetDeath();
+    }
+
     private void Update()
     {
         groundedRememberTimer -= Time.deltaTime;
         jumpRememberTimer -= Time.deltaTime;
 
-        //switch (state)
-        //{
-        //    case PlayerState.Normal:
-                CheckGround();
-                Movement();
-
-                //ExplosionReduction(); /*--> Lerp in aria durante l'esplosione*/       
-
-                SetGravity();
-                AnimationSet();
-        //        break;
-        //    //case PlayerState.Exposion:
-        //    //    break;
-        //}
-
-        
-
-        //if (isOnPlatform)
-        //{
-        //    rb.velocity += rbPlatform.GetComponent<Traslator>().deltaMovement * 50;
-        //}
+        CheckGround();
+        Movement(); 
+        SetGravity();
+        AnimationSet();
     }
 
     private void AnimationSet()
@@ -230,7 +218,7 @@ public class PlayerController : MonoBehaviour
         GetComponentInChildren<SpriteRenderer>().enabled = false;
 
         GameObject explosion = Instantiate(prefabExplosion, (Vector2)transform.position + new Vector2(0, offsetExplosion), transform.rotation);
-        explosion.GetComponent<ExplosionBehaviour>().InitializeExplosion(offsetExplosion, radius, distance, fade);
+        explosion.GetComponent<ExplosionBehaviour>().InitializeExplosion(offsetExplosion, radius, distance);
         prepExplosion = false;
     }
 
@@ -254,9 +242,6 @@ public class PlayerController : MonoBehaviour
         isDead = false;
 
         rb.bodyType = RigidbodyType2D.Dynamic;
-        //playerCollider.enabled = true;
-
-        //state = PlayerState.Normal;
     }
 
     private void Pause(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -281,25 +266,5 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere((Vector2)transform.position + new Vector2(0, distance), radius);
     }
-
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if(collision.gameObject.GetComponent<Traslator>() != null)
-    //    {
-    //        rbPlatform = collision.gameObject.GetComponent<Rigidbody2D>();
-    //        isOnPlatform = true;
-    //    }
-    //}
-
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.GetComponent<Traslator>() != null)
-    //    {
-    //        rbPlatform = null;
-    //        isOnPlatform = false;
-    //    }
-    //}
-
 
 }
