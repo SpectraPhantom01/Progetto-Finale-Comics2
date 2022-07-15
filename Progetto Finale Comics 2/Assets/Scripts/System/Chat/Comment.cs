@@ -5,12 +5,10 @@ using UnityEngine;
 
 public class Comment : MonoBehaviour
 {
-    [SerializeField] CommentSO commentSO;
-    TextMeshProUGUI textMesh;
+    [SerializeField] TextMeshProUGUI textMesh;
 
-    private void Start()
+    public void InitializeComment(string username, string comment)
     {
-        textMesh = GetComponent<TextMeshProUGUI>();
-        textMesh.text = commentSO.comment;
+        textMesh.text = username + ": " + comment;
     }
 }

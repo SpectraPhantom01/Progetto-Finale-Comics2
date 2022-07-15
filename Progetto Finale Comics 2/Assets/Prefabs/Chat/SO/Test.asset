@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44d64cc254111814991fc6686dbf51d6, type: 3}
-  m_Name: Nuovo commento
+  m_Name: Test
   m_EditorClassIdentifier: 
-  comment: 'Bruh: ahahahah che merda'
+  username: Bruh
+  comment: ahahahah che merda

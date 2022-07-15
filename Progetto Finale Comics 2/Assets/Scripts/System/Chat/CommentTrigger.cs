@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CommentTrigger : MonoBehaviour
-{
-    [SerializeField] Comment comment;
+{ 
+    [SerializeField] CommentSO commentSO;
+    [SerializeField] Comment prefabComment;
+    bool activated = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,8 +14,14 @@ public class CommentTrigger : MonoBehaviour
 
         if (player != null)
         {
-            Instantiate(comment.gameObject, ChatManager.instance.textContainerUI.transform);
-            //ChatManager.instance.AddComment(instantiatedComment);
-        }
+            if (!activated)
+            {
+                Comment instantiedComment = Instantiate(prefabComment);
+                instantiedComment.InitializeComment(commentSO.username, commentSO.comment);
+                
+                ChatManager.instance.AddComment(instantiedComment);
+                activated = true;
+            }
+        }     
     }
 }
