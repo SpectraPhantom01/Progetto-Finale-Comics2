@@ -13,6 +13,6 @@ public class Playsound : MonoBehaviour
 
     public void Stopsounds()
     {
-        AudioManager.instance.Play(sound);
+        AudioManager.instance.Stop(sound);
     }
 }
