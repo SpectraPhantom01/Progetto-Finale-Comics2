@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb31801feae07b94a85438ae00e38b15, type: 3}
+  m_Name: 5
+  m_EditorClassIdentifier: 
+  titolo: Informativa sul Progetto "DO YOU WNAT TO EXPLODE 2"
+  mittente: '< Uffici@AFKProduction.it > '
+  data: 21 Dicembre 2020
+  oggetto: "Gentilissimi BoomStudios i vertici della AFKProduction sono molto soddisfatti
+    che abbiate accettato di buon grado la richiesta del team Marketing. La prima
+    release del gioco sulla piattaforma GitGoodHub \xE8 stata annunciata per il 7/01,
+    ci scusiamo di non avervi reso partecipi della decisione sulla data del primo
+    rilascio, ma sono certo che capirete. Attendiamo con ansia di vedere il prodotto
+    visto che stiamo riscontrando dei valori molto positivi riguardo il coinvolgimento
+    e le aspettative sul secondo capitolo di \u201CDO YOU WANT TO EXPLODE\u201D 
+    Cordiali Saluti   MegaDirettore Galattico del Reparto di Intrattenimento "
