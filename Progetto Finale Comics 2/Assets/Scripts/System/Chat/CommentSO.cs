@@ -6,5 +6,6 @@ using UnityEngine;
 
 public class CommentSO : ScriptableObject
 {
+    public string username;
     public string comment;
 }
