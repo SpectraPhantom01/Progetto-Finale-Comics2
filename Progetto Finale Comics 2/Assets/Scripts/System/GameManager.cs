@@ -27,12 +27,7 @@ public class GameManager : MonoBehaviour
         canvasAnimator = canvas.GetComponent<Animator>();
     }
 
-    private void Start()
-    {
-        SetFader();
-    }
-
-    private void SetFader()
+    public void SetDeath()
     {        
         Fader canvasFader = canvas.GetComponent<Fader>();
 

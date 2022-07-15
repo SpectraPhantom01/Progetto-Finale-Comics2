@@ -20,14 +20,12 @@ public class Fader : MonoBehaviour
     public void FadeOutAnimationEvent()
     {
         //fadeOutEvent.Invoke();
-
         fadeOutAction?.Invoke();
     }
 
     public void FadeInAnimationEvent()
     {
         //fadeInEvent.Invoke();
-
         fadeInAction?.Invoke();
     }
 

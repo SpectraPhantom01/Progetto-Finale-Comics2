@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         GameManager.instance.SetPlayer(this);
+        GameManager.instance.SetDeath();
     }
 
     private void Update()
