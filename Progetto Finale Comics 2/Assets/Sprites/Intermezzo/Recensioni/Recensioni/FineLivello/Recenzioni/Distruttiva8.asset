@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7321250fd7fd6b849a3268af2172ea77, type: 3}
+  m_Name: Distruttiva8
+  m_EditorClassIdentifier: 
+  nomeUtente: MarsMars56
+  dataPubblicazione: 18 Febbario 2021
+  descrizione: "Quando \xE8 uscito ero contendo di un altro capitolo, ora sono contento
+    se non ne fanno un altro, dopo questo non comprer\xF2 mai pi\xF9 un gioco fatto
+    da voi. fate veramente schifo"
+  valutazione: {fileID: 21300000, guid: 610eb622f3a2fdc42a6d53e5d027e8cc, type: 3}

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7321250fd7fd6b849a3268af2172ea77, type: 3}
+  m_Name: Distruttiva5
+  m_EditorClassIdentifier: 
+  nomeUtente: MarkTrep32
+  dataPubblicazione: 17 Febbario 2021
+  descrizione: "Per fortuna si pu\xF2 chiedere il rimborso, \xE8 l'unica cosa positiva
+    che trovo"
+  valutazione: {fileID: 21300000, guid: e4aaaac312f706747863624e145d7ba6, type: 3}
