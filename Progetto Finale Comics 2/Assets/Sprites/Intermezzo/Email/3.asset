@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb31801feae07b94a85438ae00e38b15, type: 3}
+  m_Name: 3
+  m_EditorClassIdentifier: 
+  titolo: 'Informativa sul Marketing '
+  mittente: '< Uffici@AFKProduction.it > '
+  data: 3 Novembre 2020
+  oggetto: "Gentili BoomStudios  vi scrivo per informavi che a seguito di una riunione
+    tenutasi il giorno 01/11 i vertici della AFKProduction hanno riscontrato un interesse
+    della community pi\xF9 basso del previsto subito dopo l\u2019annuncio del secondo
+    capitolo del gioco \u201CDO YOU WANT TO EXPLODE\u201D da voi in fase di produzione,
+    pertanto dopo una riunione con un il team di Marketing abbiamo deciso di puntare
+    su un nuovo approccio rivoluzionario che far\xE0 vendere il gioco in maniera
+    straordinaria. In ordine: abbiamo deciso che il gioca andr\xE0 sviluppato assieme
+    alla community, sfrutteremo la piattaforma privata GitGoodHub per passare nuovi
+    contenuti e ricevere feedback.  Chiaramente ci aspettiamo che lei e il suo team
+    riuscirete ad aggiornare e modificare il gioco di pari passo con le richieste
+    della community stessa. Sono fiducioso nella sua comprensione, questo cambiamento
+    \xE8 per il bene del progetto.   Cordiali Saluti  MegaDirettore Galattico del
+    Reparto di Intrattenimento "

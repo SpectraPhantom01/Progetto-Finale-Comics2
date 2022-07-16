@@ -12,18 +12,11 @@ public class ExplosionBehaviour : MonoBehaviour
     float distance;
     //[SerializeField] Vector2 direction;
 
-    //public void ExplosionAnimation(Animator animator)
-    //{
-    //    //Attivazione animazione esplosione
-    //    animator.SetTrigger("Explosion");
-    //}
-
-    public void InitializeExplosion(float offsetExplosion, float radius, float distance, UnityEvent unityEvent)
+    public void InitializeExplosion(float offsetExplosion, float radius, float distance)
     {
         this.offsetExplosion = offsetExplosion;
         this.radius = radius;
         this.distance = distance;
-        endExplosion = unityEvent;
     }
 
     public void Explosion()
@@ -42,7 +35,7 @@ public class ExplosionBehaviour : MonoBehaviour
 
     public void EndExplosionEvent()
     {
-        endExplosion.Invoke();
+        GameManager.instance.SetFadeOut();
         Destroy(gameObject);
     }
 
