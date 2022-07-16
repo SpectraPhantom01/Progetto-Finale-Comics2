@@ -75,11 +75,11 @@ public class PlayerController : MonoBehaviour
         gravityScale = rb.gravityScale;
     }
 
-    private void Start()
-    {
-        GameManager.instance.SetPlayer(this);
-        GameManager.instance.SetDeath();
-    }
+    //private void Start()
+    //{
+    //    GameManager.instance.SetPlayer(this);
+    //    GameManager.instance.SetDeath();
+    //}
 
     private void Update()
     {
