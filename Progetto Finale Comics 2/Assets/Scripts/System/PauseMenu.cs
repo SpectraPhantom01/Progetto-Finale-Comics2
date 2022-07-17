@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI patchNumber;
     [SerializeField] TextMeshProUGUI patchDescription;
     [SerializeField] PatchNoteSO patchNoteSO;
+    [SerializeField] bool pauseOnStart;
 
     public static bool isPaused;
     public static PauseMenu instance;
@@ -19,13 +20,13 @@ public class PauseMenu : MonoBehaviour
     {
         instance = this;
         SetPatchNote();
+
+        if (pauseOnStart)
+        {
+           Pause();
+        }        
     }
 
-    private void SetPatchNote()
-    {
-        patchNumber.text = patchNoteSO.name;
-        patchDescription.text = patchNoteSO.patch;
-    }
 
     private void OnDestroy()
     {
@@ -44,16 +45,13 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void LoadMenu()
+    private void Pause()
     {
-        string menuString = PlayerPrefs.GetString("Menu");
-        SceneManager.LoadScene(menuString);
-        Resume();
-    }
+        isPaused = true;
 
-    public void CloseGame()
-    {
-        Application.Quit();
+        AudioListener.pause = true;
+        Time.timeScale = 0;
+        pauseUI.SetActive(true);
     }
 
     private void Resume()
@@ -65,13 +63,28 @@ public class PauseMenu : MonoBehaviour
         pauseUI.SetActive(false);
     }
 
-    private void Pause()
+    public void LoadMenu()
     {
-        isPaused = true;
+        string activeScene = SceneManager.GetActiveScene().name;
+        PlayerPrefs.SetString("Level", activeScene);
 
-        AudioListener.pause = true;
-        Time.timeScale = 0;
-        pauseUI.SetActive(true);
+        string menuString = PlayerPrefs.GetString("Menu");
+        SceneManager.LoadScene(menuString);
+
+        Resume();
     }
+
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
+
+    private void SetPatchNote()
+    {
+        patchNumber.text = patchNoteSO.name;
+        patchDescription.text = patchNoteSO.patch;
+    }
+
+
 
 }
