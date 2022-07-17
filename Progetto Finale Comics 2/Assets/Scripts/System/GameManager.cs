@@ -11,9 +11,10 @@ public class GameManager : MonoBehaviour
     public Transform currentSpawn;
     public UnityAction interactableListener;
     public UnityAction onRespawn;
+
     public static GameManager instance;
 
-    GameObject player;
+    [SerializeField] PlayerController player;
     Animator canvasAnimator;
 
     private void OnDestroy()
@@ -24,7 +25,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
         canvasAnimator = canvas.GetComponent<Animator>();
+        SetDeath();
     }
 
     public void SetDeath()
@@ -33,7 +36,7 @@ public class GameManager : MonoBehaviour
 
         canvasFader.fadeOutAction += Respawn;
         canvasFader.fadeOutAction += SetFadeIn;
-        canvasFader.fadeInAction += player.GetComponent<PlayerController>().OnEnable;
+        canvasFader.fadeInAction += player.OnEnable;
         canvasFader.fadeInAction += InvokeInteractableListener;
     }
 
@@ -66,10 +69,10 @@ public class GameManager : MonoBehaviour
         canvasAnimator.SetBool("SetFadeOut", false);
     }
 
-    public void SetPlayer(PlayerController playerController)
-    {
-        player = playerController.gameObject;
-    }
+    //public void SetPlayer(PlayerController playerController)
+    //{
+    //    player = playerController.gameObject;
+    //}
 
     public void InvokeInteractableListener()
     {

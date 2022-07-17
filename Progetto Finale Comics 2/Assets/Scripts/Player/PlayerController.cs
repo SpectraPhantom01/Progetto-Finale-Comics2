@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour
     PlayerInput playerInput;
     Vector2 direction;
     Rigidbody2D rb;
-    Collider2D playerCollider;
     float horizontalMove;
     bool isGrounded;
     bool prepExplosion;
@@ -71,15 +70,14 @@ public class PlayerController : MonoBehaviour
         playerInput = new PlayerInput();
 
         rb = GetComponent<Rigidbody2D>();
-        playerCollider = GetComponent<Collider2D>();
         gravityScale = rb.gravityScale;
     }
 
-    private void Start()
-    {
-        GameManager.instance.SetPlayer(this);
-        GameManager.instance.SetDeath();
-    }
+    //private void Start()
+    //{
+    //    GameManager.instance.SetPlayer(this);
+    //    GameManager.instance.SetDeath();
+    //}
 
     private void Update()
     {
@@ -204,8 +202,11 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerExplosion(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        prepExplosion = true;
-        animator.SetTrigger("Explosion");
+        if (!PauseMenu.isPaused)
+        {
+            prepExplosion = true;
+            animator.SetTrigger("Explosion");
+        }  
     }
 
     public void SetExplosion() 
@@ -230,13 +231,14 @@ public class PlayerController : MonoBehaviour
     public void OnEnable()
     {
         playerInput.Player.Enable();
+        playerInput.Menu.Enable();
 
         playerInput.Player.Jump.started += SetJumpTimer;
         playerInput.Player.Jump.performed += Jump;
         playerInput.Player.Jump.canceled += AbortJump;
         playerInput.Player.Explosion.performed += PlayerExplosion;
 
-        playerInput.Player.Pause.started += Pause;
+        playerInput.Menu.Pause.performed += Pause;
 
         GetComponentInChildren<SpriteRenderer>().enabled = true;
         isDead = false;
@@ -244,17 +246,18 @@ public class PlayerController : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
-    private void Pause(UnityEngine.InputSystem.InputAction.CallbackContext obj)
-    {
-        PauseMenu.instance.CheckPauseMenu();
-    }
-
     public void OnDisable()
     {
         playerInput.Player.Disable();
+        playerInput.Menu.Disable();
 
         //rb.bodyType = RigidbodyType2D.Static;
         //playerCollider.enabled = false;
+    }
+
+    private void Pause(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        PauseMenu.instance.CheckPauseMenu();        
     }
 
     private void OnDrawGizmos()
