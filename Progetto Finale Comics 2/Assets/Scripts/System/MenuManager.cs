@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] string levelToLoad;
-    bool firstTime;
+    bool firstTime = true;
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class MenuManager : MonoBehaviour
             levelToLoad = PlayerPrefs.GetString("Level");
         }
             
-        firstTime = true;
+        firstTime = false;
     }
 
     public void LoadLevel()
