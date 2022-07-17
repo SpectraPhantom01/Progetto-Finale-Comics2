@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Mainframe : MonoBehaviour
 {
+    //[SerializeField] int sceneIndex;
     PlayableDirector director;
 
     private void Start()
@@ -19,7 +20,8 @@ public class Mainframe : MonoBehaviour
         if (player.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             //director.Play();
-            //SceneManager.LoadScene();
+            //SceneManager.LoadScene(sceneIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
