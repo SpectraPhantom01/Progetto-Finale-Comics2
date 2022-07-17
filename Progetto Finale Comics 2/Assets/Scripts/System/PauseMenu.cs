@@ -1,18 +1,30 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseUI;
+    [SerializeField] TextMeshProUGUI patchNumber;
+    [SerializeField] TextMeshProUGUI patchDescription;
+    [SerializeField] PatchNoteSO patchNoteSO;
+
     public static bool isPaused;
     public static PauseMenu instance;
 
     private void Awake()
     {
         instance = this;
+        SetPatchNote();
+    }
+
+    private void SetPatchNote()
+    {
+        patchNumber.text = patchNoteSO.name;
+        patchDescription.text = patchNoteSO.patch;
     }
 
     private void OnDestroy()
