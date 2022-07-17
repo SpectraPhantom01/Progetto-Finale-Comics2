@@ -181,3 +181,21 @@ MonoBehaviour:
     pitch: 0.8
     loop: 1
     source: {fileID: 0}
+  - name: Camminata
+    clip: {fileID: 8300000, guid: b79486a16003f6241a1454d0ca5b4b57, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Esplosione
+    clip: {fileID: 8300000, guid: 3a68bb7a8f7bcbc459a348337a6049c9, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Leva
+    clip: {fileID: 8300000, guid: 3a68bb7a8f7bcbc459a348337a6049c9, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
