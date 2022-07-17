@@ -34,15 +34,19 @@ public class PauseMenu : MonoBehaviour
     private void Resume()
     {
         isPaused = false;
+
+        AudioListener.pause = false;
         Time.timeScale = 1;
-        Debug.Log("Non in pausa");
+        pauseUI.SetActive(false);
     }
 
     private void Pause()
     {
         isPaused = true;
+
+        AudioListener.pause = true;
         Time.timeScale = 0;
-        Debug.Log("Pausa");
+        pauseUI.SetActive(true);
     }
 
 }

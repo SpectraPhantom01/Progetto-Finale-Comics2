@@ -5,8 +5,6 @@ using UnityEngine.Events;
 
 public class ExplosionBehaviour : MonoBehaviour
 {
-    UnityEvent endExplosion;
-
     float radius;
     float offsetExplosion;
     float distance;
