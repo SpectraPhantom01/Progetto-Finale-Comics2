@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class Mainframe : MonoBehaviour
 {
@@ -17,7 +18,8 @@ public class Mainframe : MonoBehaviour
         PlayerController player = collision.GetComponent<PlayerController>();
         if (player.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            director.Play();
+            //director.Play();
+            //SceneManager.LoadScene();
         }
     }
 
