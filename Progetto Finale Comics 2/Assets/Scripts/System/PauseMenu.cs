@@ -23,7 +23,7 @@ public class PauseMenu : MonoBehaviour
 
         if (pauseOnStart)
         {
-           Pause();
+            Pause();
         }        
     }
 
@@ -45,7 +45,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    private void Pause()
+    public void Pause()
     {
         isPaused = true;
 
@@ -54,7 +54,7 @@ public class PauseMenu : MonoBehaviour
         pauseUI.SetActive(true);
     }
 
-    private void Resume()
+    public void Resume()
     {
         isPaused = false;
 
