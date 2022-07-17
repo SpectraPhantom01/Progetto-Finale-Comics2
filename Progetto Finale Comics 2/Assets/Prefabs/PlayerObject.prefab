@@ -108,8 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 6.5
-  acceleration: 18
-  deceleration: 20
+  acceleration: 20
+  deceleration: 30
   jumpForce: 17
   cutJumpValue: 0.5
   fallGravityMultiplier: 2.5

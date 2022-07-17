@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 //public enum PlayerState { Normal, Exposion }
 
@@ -273,6 +274,8 @@ public class PlayerController : MonoBehaviour
 
         playerInput.Menu.Pause.performed += Pause;
 
+        playerInput.Player.Cheat.performed += Skip;
+
         GetComponentInChildren<SpriteRenderer>().enabled = true;
         isDead = false;
 
@@ -286,6 +289,11 @@ public class PlayerController : MonoBehaviour
 
         //rb.bodyType = RigidbodyType2D.Static;
         //playerCollider.enabled = false;
+    }
+
+    private void Skip(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void Pause(UnityEngine.InputSystem.InputAction.CallbackContext obj)

@@ -10,6 +10,8 @@ public class Finelivello : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            AudioManager.instance.Stop("Theme");
+            collision.gameObject.GetComponent<PlayerController>().OnDisable();
             error.SetActive(true);
         }
             

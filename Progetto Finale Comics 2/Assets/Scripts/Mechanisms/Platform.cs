@@ -82,6 +82,12 @@ public class Platform : MonoBehaviour
         index = startingIndex;
         i = 1;
 
+        PlayerController player = gameObject.GetComponentInChildren<PlayerController>();
+        if (player)
+        {
+            player.gameObject.transform.parent = null;
+        }
+
         transform.position = points[index].position;
         transform.rotation = Quaternion.identity;
     }

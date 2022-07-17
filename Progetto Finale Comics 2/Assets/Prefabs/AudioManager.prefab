@@ -194,7 +194,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Leva
-    clip: {fileID: 8300000, guid: 3a68bb7a8f7bcbc459a348337a6049c9, type: 3}
+    clip: {fileID: 8300000, guid: 7390b67ae19af3d40831c2b33c6f2330, type: 3}
     volume: 0.4
     pitch: 1
     loop: 0

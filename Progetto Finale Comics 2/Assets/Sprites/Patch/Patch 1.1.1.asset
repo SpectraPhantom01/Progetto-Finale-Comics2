@@ -14,11 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nPatchNote: Patch 1.1.1
   patch: "Nuovi elementi\nAggiunto nuovi ostacoli, laser mobili e rotanti\nAggiunto
-    il doppio salto e aumentata la velocit\xE0 di movimento\nPotenziato l'effetto
-    di rallentamento del gas e velocit\xE0 di uccisione\n\nBug fixes\nAggiustati
-    i raggi traenti\nAggiustamenti sulle traiettorie delle piattaforme\nSiamo a conoscenza
-    di alcuni problemi sulle collisioni dei laser\n\nNote degli sviluppatori\nPer
-    scusarci dei recenti bug riscontrati abbiamo rilasciato alcune feature che svolteranno
-    il modo di giocare Do you want to Explode 2.\nCi scusiamo anche per la carenza
-    di elementi grafici ma il team \xE8 alla ricerca di un nuovo artista, a breve
-    avrete notizie sui social."
+    il doppio salto e aumentata la velocit\xE0 di movimento\nAggiunta bomba collezionabile
+    (nessun effetto)\n\nBug fixes\nAggiustati i raggi traenti\nAggiustamenti sulle
+    traiettorie delle piattaforme\nSiamo a conoscenza di alcuni problemi sulle collisioni
+    dei laser\n\nNote degli sviluppatori\nPer scusarci dei recenti bug riscontrati
+    abbiamo rilasciato alcune feature che svolteranno il modo di giocare Do you want
+    to Explode 2."

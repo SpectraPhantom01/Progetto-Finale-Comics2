@@ -65,13 +65,16 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        string activeScene = SceneManager.GetActiveScene().name;
-        PlayerPrefs.SetString("Level", activeScene);
-
+        //string activeScene = SceneManager.GetActiveScene().name;
+        //PlayerPrefs.SetString("Level", activeScene);
+    
         string menuString = PlayerPrefs.GetString("Menu");
         SceneManager.LoadScene(menuString);
 
         Resume();
+
+        if (AudioManager.instance != null)
+            Destroy(AudioManager.instance.gameObject);
     }
 
     public void CloseGame()

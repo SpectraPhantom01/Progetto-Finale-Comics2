@@ -53,6 +53,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cheat"",
+                    ""type"": ""Button"",
+                    ""id"": ""d3e68965-4d6e-427d-a479-3047f9fa3e7a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Explosion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""107c9010-2fab-4922-a321-5f85d653c193"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cheat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -171,6 +191,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Explosion = m_Player.FindAction("Explosion", throwIfNotFound: true);
+        m_Player_Cheat = m_Player.FindAction("Cheat", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
@@ -236,6 +257,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Explosion;
+    private readonly InputAction m_Player_Cheat;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -243,6 +265,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Explosion => m_Wrapper.m_Player_Explosion;
+        public InputAction @Cheat => m_Wrapper.m_Player_Cheat;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -261,6 +284,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Explosion.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExplosion;
                 @Explosion.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExplosion;
                 @Explosion.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExplosion;
+                @Cheat.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCheat;
+                @Cheat.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCheat;
+                @Cheat.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCheat;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -274,6 +300,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Explosion.started += instance.OnExplosion;
                 @Explosion.performed += instance.OnExplosion;
                 @Explosion.canceled += instance.OnExplosion;
+                @Cheat.started += instance.OnCheat;
+                @Cheat.performed += instance.OnCheat;
+                @Cheat.canceled += instance.OnCheat;
             }
         }
     }
@@ -316,6 +345,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnExplosion(InputAction.CallbackContext context);
+        void OnCheat(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
