@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Livelli commentati backup/Level 6.unity
     guid: cb8f5e67405c4d647b40e6b1468331c2
+  - enabled: 1
+    path: Assets/Scenes/Credit.unity
+    guid: e65f169a91518a04a9b9d430f1ed7d98
   m_configObjects: {}
