@@ -113,7 +113,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 0.8, y: 2}
   m_EdgeRadius: 0
 --- !u!95 &6197493253137031961
 Animator:
@@ -149,7 +149,13 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: -5149450434859769572, guid: 35a83cd3acde9e3438d488e9f8184df5, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7582915907851891017, guid: 35a83cd3acde9e3438d488e9f8184df5, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8518881572567661331, guid: 35a83cd3acde9e3438d488e9f8184df5, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &6197493253137031962
