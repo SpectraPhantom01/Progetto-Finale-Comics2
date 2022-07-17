@@ -45,3 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 0}
+  patchNumber: {fileID: 0}
+  patchDescription: {fileID: 0}
+  patchNoteSO: {fileID: 0}
