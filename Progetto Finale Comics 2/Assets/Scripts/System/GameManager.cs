@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Transform currentSpawn;
     public UnityAction interactableListener;
     public UnityAction onRespawn;
+
     public static GameManager instance;
 
     [SerializeField] PlayerController player;
