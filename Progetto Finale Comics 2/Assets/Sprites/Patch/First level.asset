@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01adbcadb9e52e04d94aed08251c5136, type: 3}
+  m_Name: First level
+  m_EditorClassIdentifier: 
+  nPatchNote: Do you want to Explode
+  patch: "Per anni nell'area 51 ci sono stati esperimenti strani, Telebomb \xE8 uno
+    di questi e vuole vendicarsi. Un talebano geneticamente modificato per non morire
+    mai del tutto si \xE8 liberato ed ora i malvagi scienziati della base segreta
+    ne pagheranno pegno assieme a tutta la struttura. "

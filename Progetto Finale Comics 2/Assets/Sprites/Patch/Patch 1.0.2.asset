@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01adbcadb9e52e04d94aed08251c5136, type: 3}
+  m_Name: Patch 1.0.2
+  m_EditorClassIdentifier: 
+  nPatchNote: Patch 1.0.2
+  patch: 'Nuovi elementi
+
+    Aggiunto gli ufo come oggetti interagibili, usare con
+    cautela
+
+    Aggiunti nuovi blocchi di (Tilemap) pavimenti e muri
+
+
+    Bug fixes
+
+    Stiamo
+    lavorando al bug delle piattaforme, per ora abbiamo adottato un fix temporaneo
+
+
+    Note
+    degli sviluppatori
+
+    Ci piacerebbe adottare un nuovo stile grafico per i nuovi
+    livelli, fateci sapere cosa ne pensate, e attenti a non farvi rapire dagli ufo
+    nel frattempo.'

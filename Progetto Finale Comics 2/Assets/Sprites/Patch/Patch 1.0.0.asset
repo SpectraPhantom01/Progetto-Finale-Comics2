@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01adbcadb9e52e04d94aed08251c5136, type: 3}
-  m_Name: 1
+  m_Name: Patch 1.0.0
   m_EditorClassIdentifier: 
   nPatchNote: Patch 1.0.0
   patch: 'Nuovi elementi
@@ -27,4 +27,7 @@ MonoBehaviour:
 
     Note degli sviluppatori
 
-'
+    Siamo felici
+    di inaugurare la prima versione di Do you want to explode 2, troverete durante
+    il play la barra di GithGoodHub con cui potervi confrontare con gli altri utenti
+    ed aiutarci a sviluppare il gioco che desiderate'

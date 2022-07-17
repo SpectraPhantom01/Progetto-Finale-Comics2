@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01adbcadb9e52e04d94aed08251c5136, type: 3}
+  m_Name: Patch 1.2.0
+  m_EditorClassIdentifier: 
+  nPatchNote: Patch 1.2.0
+  patch: "Nuovi elementi\n\nBug fixes\nSiamo a conoscenza dei bug\n\nNote degli sviluppatori\nA
+    seguito di problemi interni al team alcuni membri hanno lasciato il progetto,
+    il designer ha provato ad occuparsi dei bug fixes pi\xF9 urgenti ma sfortunatamente
+    dovremo aspettare di trovare del nuovo personale. Il progetto andr\xE0 in pausa
+    a data da destinarsi. \nQuesto \xE8 lo stato attuale, avremo modo di confrontarci
+    con l'AFK production e vi faremo sapere al pi\xF9 presto tramite social. \nSiamo
+    mortificati per il disagio."
