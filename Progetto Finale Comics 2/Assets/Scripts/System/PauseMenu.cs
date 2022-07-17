@@ -24,7 +24,7 @@ public class PauseMenu : MonoBehaviour
         if (pauseOnStart)
         {
             Pause();
-        }        
+        }   
     }
 
 
