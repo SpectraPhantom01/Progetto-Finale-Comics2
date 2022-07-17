@@ -172,7 +172,40 @@ public class PlayerController : MonoBehaviour
             groundedRememberTimer = 0;
 
             rb.velocity = Vector2.up * jumpForce;
-            AudioManager.instance.Play("Jump");
+            System.Random rd = new System.Random();
+            int rand_num = rd.Next(0, 8);
+            switch (rand_num)
+            {
+                case 0:
+                    AudioManager.instance.Play("Jump");
+                    break;
+                case 1:
+                    AudioManager.instance.Play("Jump1");
+                    break;
+                case 2:
+                    AudioManager.instance.Play("Jump2");
+                    break;
+                case 3:
+                    AudioManager.instance.Play("Jump3");
+                    break;
+                case 4:
+                    AudioManager.instance.Play("Jump4");
+                    break;
+                case 5:
+                    AudioManager.instance.Play("Jump5");
+                    break;
+                case 6:
+                    AudioManager.instance.Play("Jump6");
+                    break;
+                case 7:
+                    AudioManager.instance.Play("Jump7");
+                    break;
+                case 8:
+                    AudioManager.instance.Play("Jump8");
+                    break;
+
+            }
+            
             
         }
         //animator.SetBool("isGrounded", false);
