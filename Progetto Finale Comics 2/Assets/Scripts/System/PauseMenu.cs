@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -29,6 +30,18 @@ public class PauseMenu : MonoBehaviour
         {
             Resume();
         }
+    }
+
+    public void LoadMenu()
+    {
+        string menuString = PlayerPrefs.GetString("Menu");
+        SceneManager.LoadScene(menuString);
+        Resume();
+    }
+
+    public void CloseGame()
+    {
+        Application.Quit();
     }
 
     private void Resume()
