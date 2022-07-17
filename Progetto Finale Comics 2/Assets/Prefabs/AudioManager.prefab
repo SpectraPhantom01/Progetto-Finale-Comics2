@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c57d2290756b4418e1ed497a3a2cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: Dark
+  music: Theme
 --- !u!1 &1409785850523115933
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Theme
+  - name: Theme2
     clip: {fileID: 8300000, guid: 43d7e0597ba1db44ca246ff6e80acee9, type: 3}
     volume: 0.3
     pitch: 1
@@ -121,21 +121,81 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Dark
-    clip: {fileID: 8300000, guid: 924b59615f5978842be1495172346fa3, type: 3}
-    volume: 0.1
+  - name: Theme
+    clip: {fileID: 8300000, guid: 120de259506fc9742bfa2edd07e98093, type: 3}
+    volume: 0.3
     pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Jump1
+    clip: {fileID: 8300000, guid: 836b8a65c2d9928488889fef3f60dc0b, type: 3}
+    volume: 1
+    pitch: 0.7
     loop: 0
     source: {fileID: 0}
-  - name: Bip
-    clip: {fileID: 8300000, guid: 315a4f40066184e4093fcd566dd992f3, type: 3}
-    volume: 0.1
-    pitch: 1
+  - name: Jump2
+    clip: {fileID: 8300000, guid: 836b8a65c2d9928488889fef3f60dc0b, type: 3}
+    volume: 1
+    pitch: 0.8
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump3
+    clip: {fileID: 8300000, guid: 836b8a65c2d9928488889fef3f60dc0b, type: 3}
+    volume: 1
+    pitch: 0.9
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump4
+    clip: {fileID: 8300000, guid: 836b8a65c2d9928488889fef3f60dc0b, type: 3}
+    volume: 0.95
+    pitch: 0.65
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump5
+    clip: {fileID: 8300000, guid: 836b8a65c2d9928488889fef3f60dc0b, type: 3}
+    volume: 0.95
+    pitch: 0.75
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump6
+    clip: {fileID: 8300000, guid: 836b8a65c2d9928488889fef3f60dc0b, type: 3}
+    volume: 0.95
+    pitch: 0.85
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump7
+    clip: {fileID: 8300000, guid: 836b8a65c2d9928488889fef3f60dc0b, type: 3}
+    volume: 0.95
+    pitch: 0.95
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump8
+    clip: {fileID: 8300000, guid: 836b8a65c2d9928488889fef3f60dc0b, type: 3}
+    volume: 0.95
+    pitch: 0.55
     loop: 0
     source: {fileID: 0}
   - name: Alarm
     clip: {fileID: 8300000, guid: 587ae0df572324e4aaf5608efbc8ef77, type: 3}
-    volume: 0.1
+    volume: 0.2
+    pitch: 0.8
+    loop: 1
+    source: {fileID: 0}
+  - name: Camminata
+    clip: {fileID: 8300000, guid: b79486a16003f6241a1454d0ca5b4b57, type: 3}
+    volume: 0.2
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: Esplosione
+    clip: {fileID: 8300000, guid: 3a68bb7a8f7bcbc459a348337a6049c9, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Leva
+    clip: {fileID: 8300000, guid: 3a68bb7a8f7bcbc459a348337a6049c9, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
     source: {fileID: 0}

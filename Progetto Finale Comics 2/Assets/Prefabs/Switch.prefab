@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 9220321671201852193}
   - component: {fileID: 3759244638663180114}
   - component: {fileID: 7286612424759287448}
+  - component: {fileID: 9052521397557826598}
   m_Layer: 0
   m_Name: Switch
   m_TagString: Untagged
@@ -207,3 +208,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: {x: 0.5, y: 0.5, z: 0.5}
+--- !u!114 &9052521397557826598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759244638663180112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7bf12138795d0b4ea5029592a42fa06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: Leva

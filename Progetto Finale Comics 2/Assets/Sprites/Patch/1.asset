@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01adbcadb9e52e04d94aed08251c5136, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  nPatchNote: Patch 1.0.0
+  patch: 'Nuovi elementi
+
+    In questa sezione caricheremo i nuovi elementi per
+    ogni rilascio, stay tuned
+
+
+    Bug fixes
+
+    In questa sezione vi informeremo
+    dei bug conosciuti e/o risolti
+
+
+    Note degli sviluppatori
+
+'

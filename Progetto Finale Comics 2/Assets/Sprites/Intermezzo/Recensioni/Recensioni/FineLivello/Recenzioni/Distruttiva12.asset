@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7321250fd7fd6b849a3268af2172ea77, type: 3}
+  m_Name: Distruttiva12
+  m_EditorClassIdentifier: 
+  nomeUtente: LittleDanny
+  dataPubblicazione: 18 Febbario 2021
+  descrizione: "Non capite veramente nulla di come si fa un gioco, orrore sotto tutti
+    i punti di vista. Dalla Programmazione (un Bug dietro l'altro) al level design
+    (se giocavo in un mondo flat di Minecraft sicuramente avr\xE0 pi\xF9 design di
+    questo gioco)"
+  valutazione: {fileID: 21300000, guid: 4daa45512d3e9a74096f098592a7f23d, type: 3}

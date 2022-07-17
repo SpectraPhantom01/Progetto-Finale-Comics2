@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb31801feae07b94a85438ae00e38b15, type: 3}
+  m_Name: EmailFinale
+  m_EditorClassIdentifier: 
+  titolo: Fine Trattativa
+  mittente: '< Uffici@AFKProduction.it > '
+  data: 21 marzo 2021
+  oggetto: " Buongiorno BoomStudios vi comunico che dopo una riunione dei vertici
+    della AFKProduction tenutasi il giorno 20/03/2021 \xE8 stato stabilito, dopo
+    un analisi tenutasi dal nostro Reparto di Marketing, abbiamo deciso di non continuare
+    a finanziare i Vostri progetti in maniera definitiva e non trattabile.                                                                                                                        
+    Cordiali saluti                                       MegaDirettore Galattico
+    del Reparto di Intrattenimento Della AFKProduction "
