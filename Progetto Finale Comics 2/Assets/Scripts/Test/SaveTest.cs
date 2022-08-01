@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SaveTest : MonoBehaviour
 {
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController player = collision.GetComponent<PlayerController>();
