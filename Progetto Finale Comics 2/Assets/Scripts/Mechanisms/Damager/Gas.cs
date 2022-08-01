@@ -41,9 +41,19 @@ public class Gas : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerController playerController = collision.GetComponent<PlayerController>();
-        if (playerController != null)
+        //PlayerController playerController = collision.GetComponent<PlayerController>();
+        //if (playerController != null)
+        //{
+        //    playerController.SetMovementModifier(speedModifier);
+        //    player = playerController;
+        //    StartCountdown();
+        //}
+
+        
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Head"))
         {
+            PlayerController playerController = collision.GetComponentInParent<PlayerController>();
+
             playerController.SetMovementModifier(speedModifier);
             player = playerController;
             StartCountdown();
@@ -52,11 +62,21 @@ public class Gas : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        PlayerController playerController = collision.GetComponent<PlayerController>();
-        if (playerController != null)
+        //PlayerController playerController = collision.GetComponent<PlayerController>();
+        //if (playerController != null)
+        //{
+        //    playerController.SetMovementModifier(1);
+        //    ResetCountdown();
+        //}
+
+        
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Head"))
         {
+            PlayerController playerController = collision.GetComponentInParent<PlayerController>();
+
             playerController.SetMovementModifier(1);
             ResetCountdown();
         }
+
     }
 }
