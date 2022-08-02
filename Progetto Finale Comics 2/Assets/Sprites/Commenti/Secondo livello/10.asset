@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: 10
   m_EditorClassIdentifier: 
   username: PressF
-  comment: "Ma la seconda piattaforma \xE8 anche pi\xF9 rotta della prima"
+  comment: La seconda piattaforma non parte, ma sono riuscito a usare la prima per
+    arrivare lo stesso
