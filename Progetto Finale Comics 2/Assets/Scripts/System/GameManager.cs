@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
-    [SerializeField] PlayerController player;
+    public PlayerController player;
     Animator canvasAnimator;
 
     private void OnDestroy()
