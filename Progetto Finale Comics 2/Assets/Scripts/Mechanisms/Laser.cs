@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+enum State { Inactive, Prep, Active }
 
 public class Laser : MonoBehaviour
 {
@@ -22,6 +25,9 @@ public class Laser : MonoBehaviour
     bool acceso;
     bool active;
 
+    State state = State.Inactive;
+    float timePrep = 1f;
+
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -32,10 +38,21 @@ public class Laser : MonoBehaviour
 
     private void Update()
     {
-        if (active)
+        //if (active)
+        //{
+        //    ShootLaser();
+        //}
+
+        switch (state)
         {
-            ShootLaser();
+            case State.Prep:
+                PrepareLaser();
+                break;
+            case State.Active:
+                ShootLaser();
+                break;
         }
+
     }
 
     private void ShootLaser()
@@ -74,30 +91,65 @@ public class Laser : MonoBehaviour
     {
         //Attivazione con delay
         //Aggiungere particellare
+
         yield return new WaitForSeconds(delayTime);
-        
+
         while (acceso)
         {
-            //Attivo
-            if (!active)
-                SetLaser(true);
+            state = State.Prep;
 
+            lineRenderer.enabled = true;
+            lineRenderer.startColor = Color.red; 
+            lineRenderer.endColor = Color.red;
+
+            yield return new WaitForSeconds(timePrep);
+           
+            //Attivo
+            if (state == State.Prep)
+            {
+                state = State.Active;
+
+                lineRenderer.startColor = Color.green;
+                lineRenderer.endColor = Color.blue;
+
+                SetLaser(true);
+            }
+                
             //Delay
             yield return new WaitForSeconds(activeTime);
 
             if(activeTime > 0)
             {
                 //Disattivo
+                state = State.Inactive;
+                lineRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, 0f));
                 SetLaser(false);
+
                 //Delay
                 yield return new WaitForSeconds(inactiveTime);
             }           
         }
     }
 
+    private void PrepareLaser()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(origin.position, -origin.up);
+        lineRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, lineRenderer.material.color.a + (timePrep * Time.deltaTime)));
+
+        if (hit)
+        {
+            DrawRay(origin.position, hit.point);  
+        }
+        else
+        {
+            DrawRay(origin.position, new Vector2(origin.position.x, -distance));
+        }
+
+    }
+
     private void SetLaser(bool state)
     {
-        active = state;
+        //active = state;
         lineRenderer.enabled = state;
     }
 
