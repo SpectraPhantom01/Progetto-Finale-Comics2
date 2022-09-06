@@ -17,6 +17,7 @@ public class Laser : MonoBehaviour
     [SerializeField] float activeTime;
     [Tooltip("Valore >= 0, usato solo se Active Time è > 0"), Min(0)]
     [SerializeField] float inactiveTime;
+    [SerializeField] float timePrep = 1f;
 
     LineRenderer lineRenderer;
     Coroutine laserRoutine;
@@ -26,7 +27,7 @@ public class Laser : MonoBehaviour
     bool active;
 
     State state = State.Inactive;
-    float timePrep = 1f;
+   
 
     private void Awake()
     {
