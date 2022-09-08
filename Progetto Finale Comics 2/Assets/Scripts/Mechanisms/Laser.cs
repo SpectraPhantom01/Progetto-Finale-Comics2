@@ -100,8 +100,8 @@ public class Laser : MonoBehaviour
             state = State.Prep;
 
             lineRenderer.enabled = true;
-            lineRenderer.startColor = Color.red; 
-            lineRenderer.endColor = Color.red;
+            lineRenderer.startColor = Color.green; 
+            lineRenderer.endColor = Color.yellow;
 
             yield return new WaitForSeconds(timePrep);
            
@@ -110,8 +110,8 @@ public class Laser : MonoBehaviour
             {
                 state = State.Active;
 
-                lineRenderer.startColor = Color.green;
-                lineRenderer.endColor = Color.blue;
+                lineRenderer.startColor = Color.red;
+                lineRenderer.endColor = Color.red;
 
                 SetLaser(true);
             }
