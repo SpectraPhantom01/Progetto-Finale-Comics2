@@ -1791,6 +1791,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4009545726048292219, guid: 2a11c0f225c107049a1e652cb7be010e, type: 3}
+      propertyPath: timePrep
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009545726048292219, guid: 2a11c0f225c107049a1e652cb7be010e, type: 3}
       propertyPath: delayTime
       value: 0
       objectReference: {fileID: 0}

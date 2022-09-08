@@ -32,9 +32,26 @@ public class Laser : MonoBehaviour
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
-    
-        if (startActive)
-            LaserState();
+
+        if(timePrep == 0)
+        {
+            lineRenderer.enabled = true;
+            lineRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, 1f));
+            SetColorActive();
+        }
+        else
+        {
+            if (startActive)
+                LaserState();
+        }     
+    }
+
+    private void SetColorActive()
+    {
+        state = State.Active;
+
+        lineRenderer.startColor = new Color(0.8f, 0, 0);
+        lineRenderer.endColor = new Color(1, 0.5f, 0);
     }
 
     private void Update()
@@ -97,29 +114,23 @@ public class Laser : MonoBehaviour
 
         while (acceso)
         {
-            state = State.Prep;
-
-            lineRenderer.enabled = true;
-            lineRenderer.startColor = Color.green; 
-            lineRenderer.endColor = Color.yellow;
+            SetColorPrep();
 
             yield return new WaitForSeconds(timePrep);
-           
+
+
             //Attivo
             if (state == State.Prep)
             {
-                state = State.Active;
-
-                lineRenderer.startColor = Color.red;
-                lineRenderer.endColor = Color.red;
+                SetColorActive();
 
                 SetLaser(true);
             }
-                
+
             //Delay
             yield return new WaitForSeconds(activeTime);
 
-            if(activeTime > 0)
+            if (activeTime > 0)
             {
                 //Disattivo
                 state = State.Inactive;
@@ -128,14 +139,23 @@ public class Laser : MonoBehaviour
 
                 //Delay
                 yield return new WaitForSeconds(inactiveTime);
-            }           
+            }
         }
+    }
+
+    private void SetColorPrep()
+    {
+        state = State.Prep;
+
+        lineRenderer.enabled = true;
+        lineRenderer.startColor = new Color(0, 0.5f, 1);
+        lineRenderer.endColor = new Color(0.8f, 0.92f, 0.016f);
     }
 
     private void PrepareLaser()
     {
         RaycastHit2D hit = Physics2D.Raycast(origin.position, -origin.up);
-        lineRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, lineRenderer.material.color.a + (timePrep * Time.deltaTime)));
+        lineRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, lineRenderer.material.color.a + (Time.deltaTime / timePrep)));
 
         if (hit)
         {
