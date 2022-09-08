@@ -130,7 +130,7 @@ public class Laser : MonoBehaviour
             //Delay
             yield return new WaitForSeconds(activeTime);
 
-            if (activeTime > 0)
+            if (inactiveTime > 0)
             {
                 //Disattivo
                 state = State.Inactive;
@@ -188,6 +188,7 @@ public class Laser : MonoBehaviour
             {
                 StopCoroutine(laserRoutine);
                 laserRoutine = null;
+                state = State.Inactive;
                 SetLaser(false);
             }              
         }
