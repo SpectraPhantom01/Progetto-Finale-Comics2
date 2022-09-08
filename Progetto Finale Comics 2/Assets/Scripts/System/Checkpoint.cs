@@ -19,10 +19,11 @@ public class Checkpoint : MonoBehaviour
         if (player)
         {
             GameManager.instance.currentSpawn = transform;
+            animator.SetBool("Attivo", true);
         }
 
 
-        animator.SetBool("Attivo", true);
+        
 
     }
 
