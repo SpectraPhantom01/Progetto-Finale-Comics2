@@ -35,9 +35,12 @@ public class Laser : MonoBehaviour
 
         if(timePrep == 0)
         {
-            lineRenderer.enabled = true;
-            lineRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, 1f));
-            SetColorActive();
+            if (startActive)
+            {
+                lineRenderer.enabled = true;
+                lineRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, 1f));
+                SetColorActive();
+            }           
         }
         else
         {
