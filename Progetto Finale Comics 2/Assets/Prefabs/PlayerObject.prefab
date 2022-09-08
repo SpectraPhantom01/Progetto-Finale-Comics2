@@ -42,7 +42,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 428764791698312897}
   - component: {fileID: 1943630758652616411}
   - component: {fileID: 2533244639948898461}
+  - component: {fileID: 2121686542}
   m_Layer: 6
   m_Name: PlayerObject
   m_TagString: Untagged
@@ -109,7 +110,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1.4437921
+  m_Mass: 1.4964331
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
@@ -131,8 +132,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.96}
-  m_Size: {x: 0.90493, y: 1.7896734}
+  m_Offset: {x: 0, y: 0.99451613}
+  m_Size: {x: 0.75, y: 1.7004294}
   m_Direction: 0
 --- !u!95 &428764791698312897
 Animator:
@@ -167,15 +168,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 6.5
-  acceleration: 20
-  deceleration: 30
+  acceleration: 25
+  deceleration: 35
   jumpForce: 17
   cutJumpValue: 0.5
   fallGravityMultiplier: 2.5
   gravityScale: 4
   checkGround: {fileID: 1943630760075117657}
-  groundCheckRadius: 0.3
-  groundedRememberTime: 0.045
+  groundCheckRadius: 0.35
+  groundedRememberTime: 0.04
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -199,6 +200,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: Camminata
+--- !u!61 &2121686542
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943630758652616359}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 9cb109d05ddfbbc4ea7dc699ce2124cb, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.35214353}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 0.4557662}
+  m_EdgeRadius: 0
 --- !u!1 &1943630759224568903
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,11 +333,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943630760075117656}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.008726558, y: 0, z: 0, w: 0.999962}
   m_LocalPosition: {x: 0, y: 0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1943630758652616408}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1, y: 0, z: 0}
