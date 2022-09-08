@@ -1336,6 +1336,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2804396270822736668, guid: e608d15f570216840890da142ea02821, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2804396270822736669, guid: e608d15f570216840890da142ea02821, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -61152,7 +61156,7 @@ Tilemap:
       - {fileID: 21300000, guid: 747363d628d9f8f4e92b1ce8c6d0609a, type: 3}
       - {fileID: 21300000, guid: 71306a75ea93231439f5f81c432b482a, type: 3}
       - {fileID: 21300000, guid: a7732b89cd926a544a0ea654c15f40dc, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -6, y: -1, z: 0}
@@ -61230,7 +61234,7 @@ Tilemap:
       - {fileID: 21300000, guid: 747363d628d9f8f4e92b1ce8c6d0609a, type: 3}
       - {fileID: 21300000, guid: 71306a75ea93231439f5f81c432b482a, type: 3}
       - {fileID: 21300000, guid: a7732b89cd926a544a0ea654c15f40dc, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 0, y: -1, z: 0}
@@ -61412,7 +61416,7 @@ Tilemap:
       - {fileID: 21300000, guid: 747363d628d9f8f4e92b1ce8c6d0609a, type: 3}
       - {fileID: 21300000, guid: 71306a75ea93231439f5f81c432b482a, type: 3}
       - {fileID: 21300000, guid: a7732b89cd926a544a0ea654c15f40dc, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 14, y: -1, z: 0}
@@ -61451,7 +61455,7 @@ Tilemap:
       - {fileID: 21300000, guid: 747363d628d9f8f4e92b1ce8c6d0609a, type: 3}
       - {fileID: 21300000, guid: 71306a75ea93231439f5f81c432b482a, type: 3}
       - {fileID: 21300000, guid: a7732b89cd926a544a0ea654c15f40dc, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 17, y: -1, z: 0}
