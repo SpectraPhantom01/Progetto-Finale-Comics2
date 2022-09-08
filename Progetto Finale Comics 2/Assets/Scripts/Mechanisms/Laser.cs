@@ -37,6 +37,8 @@ public class Laser : MonoBehaviour
         {
             if (startActive)
             {
+                acceso = !acceso;
+
                 lineRenderer.enabled = true;
                 lineRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, 1f));
                 SetColorActive();
@@ -194,6 +196,22 @@ public class Laser : MonoBehaviour
                 state = State.Inactive;
                 SetLaser(false);
             }              
+        }
+    }
+
+    public void LaserStateSempreAttivo() //DA NON FARE
+    {
+        acceso = !acceso;
+        if (acceso)
+        {
+            lineRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, 1f));
+            SetColorActive();
+            SetLaser(true);
+        }
+        else
+        {
+            state = State.Inactive;
+            SetLaser(false);
         }
     }
 
