@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7321250fd7fd6b849a3268af2172ea77, type: 3}
   m_Name: Distruttiva11
   m_EditorClassIdentifier: 
-  nomeUtente: UtenteAnonimo0009
+  nomeUtente: UtenteAnonimo
   dataPubblicazione: 19 Febbario 2021
   descrizione: "L\u2019unica cosa divertente \xE8 far saltare in aria gli arabi. "
   valutazione: {fileID: 21300000, guid: 1d3d737eb22e3344eacf59cb336a7aa1, type: 3}

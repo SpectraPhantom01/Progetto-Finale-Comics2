@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7321250fd7fd6b849a3268af2172ea77, type: 3}
   m_Name: Distruttiva1
   m_EditorClassIdentifier: 
-  nomeUtente: GianGiacomoMegafire
+  nomeUtente: MegaGiaco
   dataPubblicazione: 15 Febbraio 2021
   descrizione: "Ma chi \xE8 che ha permesso di fare una cosa del genere?"
   valutazione: {fileID: 21300000, guid: 4daa45512d3e9a74096f098592a7f23d, type: 3}

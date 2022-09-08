@@ -8078,7 +8078,7 @@ PrefabInstance:
         risposto con l'entusiasmo previsto.\nPer evitare un pessimo investimento
         dei fondi i dirigenti della Afk srl si sono presi la libert\xE0 di fermare
         temporaneamente ila produzione. Prossimamente le saranno inoltrate nuove
-        direttive, confidiamo nella sua comprensione.\n"
+        direttive, confidiamo nella sua comprensione. Cordiali Saluti\n"
       objectReference: {fileID: 0}
     - target: {fileID: 1208926899543822707, guid: a4b44a48147c32f4a811e3b9f1ce935a, type: 3}
       propertyPath: m_fontSize
@@ -8091,6 +8091,10 @@ PrefabInstance:
     - target: {fileID: 1208926900775419184, guid: a4b44a48147c32f4a811e3b9f1ce935a, type: 3}
       propertyPath: m_text
       value: 'Data: 5/6/21'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208926900775419198, guid: a4b44a48147c32f4a811e3b9f1ce935a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4b44a48147c32f4a811e3b9f1ce935a, type: 3}
@@ -9071,6 +9075,10 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 7125251804534833532, guid: a4b44a48147c32f4a811e3b9f1ce935a, type: 3}
+      propertyPath: m_text
+      value: Girolamo Cambria
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4b44a48147c32f4a811e3b9f1ce935a, type: 3}
 --- !u!1001 &1999648213
@@ -9718,10 +9726,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 73914219}
     m_Modifications:
-    - target: {fileID: 1897809454, guid: a4b44a48147c32f4a811e3b9f1ce935a, type: 3}
-      propertyPath: email
-      value: 
-      objectReference: {fileID: 11400000, guid: 3d1dfce1ab517b642bfa879e7bdc4a9a, type: 2}
     - target: {fileID: 1208926899256897737, guid: a4b44a48147c32f4a811e3b9f1ce935a, type: 3}
       propertyPath: mail
       value: 
@@ -9734,10 +9738,6 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1689349140}
-    - target: {fileID: 1208926899256897737, guid: a4b44a48147c32f4a811e3b9f1ce935a, type: 3}
-      propertyPath: transitionTime
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1208926899256897782, guid: a4b44a48147c32f4a811e3b9f1ce935a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -9790,20 +9790,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1208926899543822707, guid: a4b44a48147c32f4a811e3b9f1ce935a, type: 3}
-      propertyPath: m_fontSize
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 1208926899543822707, guid: a4b44a48147c32f4a811e3b9f1ce935a, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 3758899691236362633, guid: a4b44a48147c32f4a811e3b9f1ce935a, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 0b21ab3ff350e164689a00d0bba31e1b, type: 2}
-    m_RemovedComponents:
-    - {fileID: 3758899691236362633, guid: a4b44a48147c32f4a811e3b9f1ce935a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4b44a48147c32f4a811e3b9f1ce935a, type: 3}
 --- !u!1001 &7066264677609180655
 PrefabInstance:

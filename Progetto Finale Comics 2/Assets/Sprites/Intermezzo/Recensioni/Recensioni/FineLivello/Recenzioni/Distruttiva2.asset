@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7321250fd7fd6b849a3268af2172ea77, type: 3}
   m_Name: Distruttiva2
   m_EditorClassIdentifier: 
-  nomeUtente: xXDarkAngelCraftXx
+  nomeUtente: DarkAngel
   dataPubblicazione: 16 Febbraio 2021
   descrizione: "\xC8 tutto Buggato come la merda non si riesce a capire nulla "
   valutazione: {fileID: 21300000, guid: 610eb622f3a2fdc42a6d53e5d027e8cc, type: 3}
